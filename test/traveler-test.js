@@ -1,15 +1,17 @@
 import { expect } from "chai";
-import travelerInfo from "../src/data/travelerData";
-import Traveler from "../src/Traveler";
+import travelerData  from "../src/data/travelerData";
+import Traveler from '../src/traveler.js'
+
 
 describe("Traveler", function () {
-  let travelerUser;
+    let traveler;
 
-  beforeEach(() => {
-    travelerUser = new Traveler(travelerInfo[0]);
-  });
+    beforeEach(() => {
+        traveler = new Traveler(travelerData[0])
+    })
 
-  it("Should be a function", function () {
-    expect(Traveler).to.be.a("function");
-  });
+    it("Should be a function", function () {
+        expect(Traveler).to.be.a("function")
+    })
 })
+

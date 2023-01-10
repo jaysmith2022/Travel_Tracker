@@ -1,4 +1,4 @@
-const travelerInfo = [
+const travelerData = [
     {
       id: 1,
       name: "Ham Leadbeater",
@@ -62,4 +62,4 @@ const travelerInfo = [
   ];
   
   
-  export default travelerInfo;
+  export default travelerData;
