@@ -1,2 +1,3 @@
-import chai from 'chai';
-const expect = chai.expect;
+import { expect } from "chai";
+import travelerInfo from "../src/data/travelerData";
+import Traveler from "../src/Traveler";
