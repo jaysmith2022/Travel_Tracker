@@ -1,6 +1,6 @@
 class Traveler {
-    constructor(data) {
-        this.data = data
+    constructor(travelerInfo) {
+        this.id = travelerInfo.id
     }
 }
 

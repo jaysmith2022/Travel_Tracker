@@ -16,6 +16,10 @@ describe("Traveler", function () {
 
     it("Should be an instance of Traveler", function () {
         expect(traveler).to.be.an.instanceof(Traveler);
-      });
+    });
+
+    it("Should have an id", function () {
+        expect(traveler.id).to.equal(1);
+    });
 })
 
