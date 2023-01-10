@@ -13,5 +13,9 @@ describe("Traveler", function () {
     it("Should be a function", function () {
         expect(Traveler).to.be.a("function")
     })
+
+    it("Should be an instance of Traveler", function () {
+        expect(traveler).to.be.an.instanceof(Traveler);
+      });
 })
 
