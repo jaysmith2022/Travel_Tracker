@@ -46,6 +46,7 @@ class Trips {
   }
 
 
+
 }
 
 export default Trips;

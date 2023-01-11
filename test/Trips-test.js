@@ -44,4 +44,8 @@ describe('Trips', function() {
         expect(allData.findUpcomingTrips(2, '2020/06/20')[0].destination).to.equal('Jakarta, Indonesia')
     })
 
+    it("should calculate total cost for trips taken by year", function () {
+        expect(allData.totalCostByYear(2, '2020')[0].destination).to.equal('this')
+    })
+
 })
