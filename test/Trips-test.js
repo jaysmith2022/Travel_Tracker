@@ -8,10 +8,12 @@ import Trips from '../src/Trips.js'
 describe('Trips', function() {
     let traveler;
     let tripsInfo;
+    let travelerInfo
 
     beforeEach(() => {
         traveler = new Traveler(travelerData[0])
         tripsInfo = new Trips(tripsData)
+        travelerInfo = new Trips(travelerData)
     })
 
     it("Should be a function", function () {
@@ -20,7 +22,12 @@ describe('Trips', function() {
 
     it("Should be an instance of Trips and Traveler", function () {
         expect(tripsInfo).to.be.an.instanceof(Trips)
+        expect(travelerInfo).to.be.an.instanceof(Trips)
         expect(traveler).to.be.an.instanceof(Traveler);
     });
+
+    it("Should have a property that holds data", function () {
+        expect(tripsInfo.data).to.equal(travelerData)
+    })
 
 })
