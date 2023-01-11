@@ -1,6 +1,5 @@
 class Traveler {
     constructor(travelerInfo) {
-        console.log(travelerInfo)
         this.id = travelerInfo.id
         this.name = travelerInfo.name
         this.travelerType = travelerInfo.travelerType
@@ -8,6 +7,7 @@ class Traveler {
 
     getFirstName() {
         return this.name.split(" ")[0]
+
     }
 }
 

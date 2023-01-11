@@ -1,6 +1,6 @@
 
 body {
-  background: grey;
+  background-image: linear-gradient(to right top, #add9f4, #91bdde, #76a1c7, #5e86b1, #476c9b);
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -12,9 +12,12 @@ body {
 
 
 .top-nav {
+  display: flex;
   height: 20%;
   width: 100%;
   box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 75%);
+  flex-direction: row;
+  align-items: center;
 }
 
 .logo-section {
@@ -80,6 +83,11 @@ h1 {
 
 h3 {
   margin-left: 20px;
+}
+
+.traveler-name {
+  width: 430px;
+  font-size: xxx-large;
 }
 
 
