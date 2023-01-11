@@ -1,13 +1,21 @@
 import { expect } from "chai";
 import travelerData  from "../src/data/travelerData";
+import tripsData  from "../src/data/tripsData";
+import destinationData from "../src/data/destinationData";
 import Traveler from '../src/traveler.js'
+import Trips from '../src/Trips.js'
 
 
 describe("Traveler", function () {
     let traveler;
+    let destinationInfo;
+    let tripsInfo;
+
 
     beforeEach(() => {
         traveler = new Traveler(travelerData[0])
+        destinationInfo = new Trips(destinationData)
+        tripsInfo = new Trips(tripsData)
     })
 
     it("Should be a function", function () {
