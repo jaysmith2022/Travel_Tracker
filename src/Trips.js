@@ -18,8 +18,18 @@ class Trips {
         })
         return acc
     }, [])
+  }
 
-
+  findPastTrips(id, date) {
+    const pastTrip = this.findAllTravelerTrips(id).filter(trip => trip.date < date).map(el => el.destinationID)
+    return pastTrip.reduce((acc, curr) => {
+        this.destinationData.forEach(element => {
+            if(element.id === curr) {
+                acc.push(element)
+            }
+        })
+        return acc
+    }, [])
   }
 }
 
