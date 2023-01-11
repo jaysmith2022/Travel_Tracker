@@ -32,7 +32,20 @@ class Trips {
     }, [])
   }
 
-  
+
+  findUpcomingTrips(id, date) {
+    const upcomingTrips = this.findAllTravelerTrips(id).filter(trip => trip.date > date).map(el => el.destinationID)
+    return upcomingTrips.reduce((acc, curr) => {
+        this.destinationData.forEach(element => {
+            if(element.id === curr) {
+                acc.push(element)
+            }
+        })
+        return acc
+    }, [])
+  }
+
+
 }
 
 export default Trips;
