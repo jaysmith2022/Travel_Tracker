@@ -14,4 +14,8 @@ describe('Trips', function() {
         tripsInfo = new Trips(tripsData)
     })
 
+    it("Should be a function", function () {
+        expect(Trips).to.be.a("function")
+    })
+
 })
