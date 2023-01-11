@@ -28,14 +28,13 @@ describe('Trips', function() {
         expect(allData.tripsData).to.deep.equal(tripsData)
     })
 
-    it("Should find all traveler trips by id", function () {
-        expect(allData.findAllTravelerTrips(1).length).to.deep.equal(1)
+    it("Should find all traveler destinations by id", function () {
+        expect(allData.findAllTravelerTrips(2).length).to.deep.equal(6)
     })
 
-    it("Should find all past trips", function () {
-        expect(allData.findAllPastTrips(2, '2023/01/11').length).to.deep.equal(7)
+    it("Should return all destination for traveler", function () {
+        expect(allData.getDestinationData(2)[0].destination).to.deep.equal("Toronto, Canada")
     })
-
 
 
 
