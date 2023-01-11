@@ -36,6 +36,8 @@ describe('Trips', function() {
         expect(allData.getDestinationData(2)[0].destination).to.deep.equal("Toronto, Canada")
     })
 
-
+    it("Should find all past trips", function () {
+        expect(allData.findPastTrips(2, '2023/01/11').length).to.equal(6)
+    })
 
 })
