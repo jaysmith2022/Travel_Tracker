@@ -32,7 +32,8 @@ describe('Trips', function() {
     })
 
     it("Should find user by ID when given an id", function () {
-        expect(findUserByID(1)).to.equal(travelerData[0])
+        const travelerInfo = new Trips(travelerData)
+        expect(travelerInfo.findUserByID(1)).to.equal(travelerData[0])
     })
 
 
