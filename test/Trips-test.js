@@ -32,6 +32,10 @@ describe('Trips', function() {
         expect(allData.findAllTravelerTrips(1).length).to.deep.equal(1)
     })
 
+    it("Should find all past trips", function () {
+        expect(allData.findAllPastTrips(2, '2023/01/11').length).to.deep.equal(7)
+    })
+
 
 
 
