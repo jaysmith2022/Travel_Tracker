@@ -18,4 +18,9 @@ describe('Trips', function() {
         expect(Trips).to.be.a("function")
     })
 
+    it("Should be an instance of Trips and Traveler", function () {
+        expect(tripsInfo).to.be.an.instanceof(Trips)
+        expect(traveler).to.be.an.instanceof(Traveler);
+    });
+
 })
