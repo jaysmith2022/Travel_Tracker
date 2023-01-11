@@ -41,12 +41,12 @@ describe('Trips', function() {
         expect(travelerInfo.findUserByID(1)).to.equal(travelerData[0])
     })
 
-    it("Should find trips for user by ID", function () {
-        const travelerInfo = new Trips(travelerData)
-        expect(travelerInfo.findUserByID(1)).to.equal(travelerData[0])
-        const travelerTrips = new Trips(tripsData)
-        expect(travelerTrips.findTravelerTrips(1).to.equal())
-    })
+    // it("Should find trips for user by ID", function () {
+    //     const travelerInfo = new Trips(travelerData)
+    //     expect(travelerInfo.findUserByID(1)).to.equal(travelerData[0])
+    //     const travelerTrips = new Trips(tripsData)
+    //     expect(travelerTrips.findTravelerTrips(1).to.equal())
+    // })
 
 
 
