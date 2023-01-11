@@ -28,9 +28,9 @@ describe('Trips', function() {
         expect(allData.tripsData).to.deep.equal(tripsData)
     })
 
-    // it("Should find all traveler trips by id", function () {
-    //     expect(tripsInfo.findAllTravelerTrips(1)[0].to.equal('something'))
-    // })
+    it("Should find all traveler trips by id", function () {
+        expect(tripsInfo.findAllTravelerTrips(1)[0].to.equal('something'))
+    })
 
 
 

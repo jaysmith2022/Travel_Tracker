@@ -7,6 +7,7 @@ class Trips {
     findUserByID(id) {
     return this.data.find(traveler => traveler.id === id)
     }
+
 }
 
 
