@@ -5,7 +5,7 @@ import Traveler from "../src/traveler";
 import Trips from '../src/Trips.js'
 
 
-describe('Repository', function() {
+describe('Trips', function() {
     let traveler;
     let tripsInfo;
 
