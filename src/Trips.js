@@ -1,6 +1,7 @@
 class Trips {
-    constructor(data) {
-        this.data = data
+    constructor(destinationData, tripsData) {
+        this.destinationData = destinationData
+        this.tripsData = tripsData
     }
 
     findUserByID(id) {

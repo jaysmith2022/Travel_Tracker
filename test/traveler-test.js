@@ -41,9 +41,5 @@ describe("Traveler", function () {
     it("Should return the travelers first name", function () {
         expect(traveler.getFirstName()).to.equal("Ham")
     })
-
-    it("Should get all trips for traveler", function () {
-        expect(traveler.findTravelerTrips(1, tripsInfo.data).to.equal())
-    })
 })
 

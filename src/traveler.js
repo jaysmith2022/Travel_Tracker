@@ -8,7 +8,6 @@ class Traveler {
     getFirstName() {
         return this.name.split(" ")[0]
     }
-
 }
 
 
