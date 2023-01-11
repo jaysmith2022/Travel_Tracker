@@ -36,6 +36,12 @@ describe('Trips', function() {
         expect(travelerInfo.findUserByID(1)).to.equal(travelerData[0])
     })
 
+    it("Should return error if no user is found", function () {
+        const travelerInfo = new Trips(travelerData)
+        expect(travelerInfo.findUserByID(85)).to.equal("User Not Found")
+    })
+
+
 
 
 })
