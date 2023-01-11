@@ -11,7 +11,7 @@ describe('Trips', function() {
     let travelerInfo
 
     beforeEach(() => {
-        traveler = new Traveler(travelerData[0])
+        traveler = new Traveler(travelerData)
         tripsInfo = new Trips(tripsData)
         travelerInfo = new Trips(travelerData)
     })
@@ -30,5 +30,11 @@ describe('Trips', function() {
         expect(tripsInfo.data).to.equal(tripsData)
         expect(travelerInfo.data).to.equal(travelerData)
     })
+
+    it("Should find user by ID when given an id", function () {
+        expect(findUserByID(1)).to.equal(travelerData[0])
+    })
+
+
 
 })
