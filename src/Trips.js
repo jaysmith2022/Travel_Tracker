@@ -4,10 +4,9 @@ class Trips {
         this.tripsData = tripsData
     }
 
-    findUserByID(id) {
-    return this.data.find(traveler => traveler.id === id)
+    findAllTravelerTrips(id) {
+        return this.tripsData.filter((trip) => trip.userID === id);
     }
-
 }
 
 

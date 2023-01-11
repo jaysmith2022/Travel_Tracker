@@ -29,7 +29,7 @@ describe('Trips', function() {
     })
 
     it("Should find all traveler trips by id", function () {
-        expect(tripsInfo.findAllTravelerTrips(1)[0].to.equal('something'))
+        expect(allData.findAllTravelerTrips(1).length).to.deep.equal(1)
     })
 
 
