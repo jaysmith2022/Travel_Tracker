@@ -40,4 +40,8 @@ describe('Trips', function() {
         expect(allData.findPastTrips(2, '2020/06/20')[1].destination).to.equal('Paris, France')
     })
 
+    it("should find all upcoming trips", function () {
+        expect(allData.findUpcomingTrips(2, '2020/06/20')[0].destination).to.equal("Nassau, The Bahamas")
+    })
+
 })

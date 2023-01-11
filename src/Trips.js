@@ -31,6 +31,8 @@ class Trips {
         return acc
     }, [])
   }
+
+  
 }
 
 export default Trips;
