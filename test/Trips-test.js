@@ -28,6 +28,7 @@ describe('Trips', function() {
 
     it("Should have a property that holds data", function () {
         expect(tripsInfo.data).to.equal(tripsData)
+        expect(travelerInfo.data).to.equal(travelerData)
     })
 
 })
