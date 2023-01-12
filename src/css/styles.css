@@ -75,9 +75,15 @@ h1 {
   flex-direction: column;
 }
 
+
+
 .display-trips {
+  height: 50%;
   width: 100%;
-  height: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .search-trips {
@@ -91,7 +97,7 @@ h1 {
 }
 
 .trip-information-page {
-  height: 90%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -121,6 +127,60 @@ h3 {
   justify-content: flex-end;
   margin-right: 30px;
 }
+
+.swiper-container {
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide {
+  margin: 0;
+
+}
+.mySwiper {
+  width: 480px;
+}
+
+.mySwiper2 {
+  border: 1rem solid;
+  border-radius: 5px;
+  box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
+  width: 580px;
+  height: 320px;
+}
+
+
+.mySwiper {
+  height: 30%;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+img {
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

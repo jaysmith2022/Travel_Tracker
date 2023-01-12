@@ -1,10 +1,21 @@
 import './css/styles.css';
-import './images/turing-logo.png'
+// import Swiper from 'swiper';
+// import 'swiper/css';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import './images/travel-logo.png'
 import { fetchData } from './apiCalls';
 import Traveler from './traveler';
 import Trips from './trips';
 import * as dayjs from "dayjs";
+
+
+
+
+
 
 const pastTrips = document.querySelector('#pastTrips')
 const currentTrips = document.querySelector('#currentTrips')
@@ -41,6 +52,7 @@ function displayUserInfo() {
     displayFirstName()
     displayTravelersTrips()
     displayTotalCostYear()
+    showVacationSpots()
 }
 function displayFirstName() {
     travelerName.innerText = `Welcome, ${travelUser.getFirstName()}`
@@ -80,6 +92,52 @@ const formatter = new Intl.NumberFormat('en-US', {
 totalForYear.innerText = `${formatter.format(trips.totalCostByYear(travelUser.id, dayjs().year()))} for ${dayjs().year()}`
 
 }
+
+
+
+function showVacationSpots() {
+
+Swiper.use([Navigation])
+
+
+let swiper = new Swiper(".mySwiper", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+   });
+   
+   
+   let swiper2 = new Swiper(".mySwiper2", {
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+   });
+
+   let newSwiper = new Swiper(".mySwiper", {
+    lazy: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+   });
+
+document.getElementById('swipeSlide').innerHTML = `<img src="https://images.unsplash.com/photo-1506982724953-b1fbe939e1e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" width="100%" height="100%"/>`
+document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"/>`
+document.getElementById('swiperText').innerText = `This place sucks`
+
+}
+
+
 
 
 
