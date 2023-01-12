@@ -1,7 +1,5 @@
 import './css/styles.css';
-// import Swiper from 'swiper';
-// import 'swiper/css';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
