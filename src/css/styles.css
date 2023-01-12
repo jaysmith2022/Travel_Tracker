@@ -1,3 +1,9 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
 
 body {
   background-image: linear-gradient(to right top, #add9f4, #91bdde, #76a1c7, #5e86b1, #476c9b);
@@ -56,7 +62,7 @@ h1 {
 }
 
 .past-trips,
-.current-trips,
+.upcoming-trips,
 .pending-trips {
   height: 30%;
   margin-left: 20px;
@@ -89,6 +95,17 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.yearly-cost-calculation {
+  display: flex;
+  margin-left: 25px;
+  font-size: large;
+  color: white;
+}
+
+.year-cost {
+  margin-left: 15px;
 }
 
 h3 {
