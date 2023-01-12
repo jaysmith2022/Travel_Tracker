@@ -68,7 +68,7 @@ describe("Trips", function () {
   })
 
   it("Should Calculate total price per trip", function () {
-    expect(allData.totalCostPerTrip(2, "2019/09/27")).to.equal(3762);
+    expect(allData.totalCostPerTrip(2, "2019/09/27")).to.deep.equal([3762, 6644, 2183.5, 2183.5, 1529, 1529, 10989, 3205.4]);
   })
 
   it("should calculate total cost for trips taken by year", function () {

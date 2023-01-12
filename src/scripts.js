@@ -67,17 +67,7 @@ function displayTravelersTrips() {
                 return document.getElementById('pendingTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
             })
             }
-
-        console.log(trips.findPendingTrips(travelUser.id))
     
-
-
-    // trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
-    // .forEach((element, index) => {
-    //     return document.getElementById('currentTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
-    // })
-
-
 }
 
 

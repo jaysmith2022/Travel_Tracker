@@ -75,9 +75,8 @@ class Trips {
   
 
 
-  totalCostPerTrip(id, date) {
-    const tripByDate = this.findAllTravelerTrips(id).filter(trip => trip.date === date)
-    const totalPerTrip = tripByDate
+  totalCostPerTrip(id) {
+    return this.findAllTravelerTrips(id)
     .reduce((acc, curr) => {
       this.getDestinationData(id).forEach((element) => {
         if (element.id === curr.destinationID) {
@@ -91,7 +90,7 @@ class Trips {
       return acc;
     }, [])
 
-    return totalPerTrip[0]
+
   }
 
 
