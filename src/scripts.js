@@ -51,13 +51,15 @@ function displayTravelersTrips() {
     })
 
     if(trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
-        return document.getElementById('currentTrips').innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+        document.getElementById('currentTrips').innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
     }else {
-        return trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+        trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
         .forEach((element, index) => {
             return document.getElementById('currentTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
         })
         }
+
+        console.log(trips.findPendingTrips(travelUser.id))
     
 
 

@@ -45,8 +45,8 @@ class Trips {
       if(upcomingTrips.length === 0) {
         return "You Don't Have Any Upcoming Trips, Book Now!"
       } else {
-    return upcomingTrips.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
+        return upcomingTrips.reduce((acc, curr) => {
+        this.destinationData.forEach((element) => {
         if (element.id === curr) {
           acc.push(element);
         }
@@ -55,6 +55,20 @@ class Trips {
     }, []);
   }
   }
+
+  findPendingTrips(id) {
+    const pendingTrips = this.findAllTravelerTrips(id)
+    .filter((el) => el.status === "pending").map(e => e.destinationID) 
+  return pendingTrips.reduce((acc, curr) => {
+    this.destinationData.forEach((element) => {
+      if (element.id === curr) {
+        acc.push(element);
+      }
+    });
+    return acc;
+  }, []);
+}
+  
 
 
   totalCostPerTrip(id, date) {

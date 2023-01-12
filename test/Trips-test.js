@@ -50,8 +50,14 @@ describe("Trips", function () {
   });
 
   it("Should display message if there are no upcoming trips", function () {
-    expect(allData.findUpcomingTrips(2, "2023/01/11")[0].destination).to.equal(
+    expect(allData.findUpcomingTrips(2, "2023/01/11")).to.equal(
       "You Don't Have Any Upcoming Trips, Book Now!"
+    );
+  })
+
+  it("Should return all pending trips", function () {
+    expect(allData.findPendingTrips(2, "2023/01/11")[0].destination).to.equal(
+      "Nassau, The Bahamas"
     );
   })
 
