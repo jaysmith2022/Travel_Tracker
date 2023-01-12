@@ -45,12 +45,10 @@ function displayFirstName() {
 }
 
 function displayTravelersTrips() {
-    const dest =  trips.findPastTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination).map((acc, index) => {
-            console.log(pastTrips.innerText = `${index +1}.) ${acc}`)
-        })
-
-    return dest
-    
+    return trips.findPastTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+    .forEach((element, index) => {
+        return document.getElementById('pastTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+    })
 }
 
 
