@@ -56,7 +56,8 @@ h1 {
 }
 
 .past-trips,
-.current-trips {
+.current-trips,
+.pending-trips {
   height: 30%;
   margin-left: 20px;
 }

@@ -59,6 +59,15 @@ function displayTravelersTrips() {
         })
         }
 
+        if(trips.findPendingTrips(travelUser.id) === "You Don't Have Any Upcoming Trips, Book Now!") {
+            document.getElementById('pendingTrips').innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+        }else {
+            trips.findPendingTrips(travelUser.id).map(el => el.destination)
+            .forEach((element, index) => {
+                return document.getElementById('pendingTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+            })
+            }
+
         console.log(trips.findPendingTrips(travelUser.id))
     
 

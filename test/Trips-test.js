@@ -61,6 +61,12 @@ describe("Trips", function () {
     );
   })
 
+  it("Should return message if there are no pending trips", function () {
+    expect(allData.findPendingTrips(133, "2023/01/11")).to.equal(
+      "You Don't Have Any Pending Trips, Book Now!"
+    );
+  })
+
   it("Should Calculate total price per trip", function () {
     expect(allData.totalCostPerTrip(2, "2019/09/27")).to.equal(3762);
   })

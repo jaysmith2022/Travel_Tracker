@@ -59,7 +59,10 @@ class Trips {
   findPendingTrips(id) {
     const pendingTrips = this.findAllTravelerTrips(id)
     .filter((el) => el.status === "pending").map(e => e.destinationID) 
-  return pendingTrips.reduce((acc, curr) => {
+    if(pendingTrips.length === 0) {
+      return "You Don't Have Any Pending Trips, Book Now!"
+    } else {
+    return pendingTrips.reduce((acc, curr) => {
     this.destinationData.forEach((element) => {
       if (element.id === curr) {
         acc.push(element);
@@ -67,6 +70,7 @@ class Trips {
     });
     return acc;
   }, []);
+}
 }
   
 
