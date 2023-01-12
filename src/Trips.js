@@ -34,6 +34,8 @@ class Trips {
       });
       return acc;
     }, []);
+
+    
   }
 
   findUpcomingTrips(id, date) {
@@ -50,24 +52,28 @@ class Trips {
     }, []);
   }
 
-  totalCostByYear(id, year) {
-    const tripsByYearDuration = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.duration);
-    const tripsByNumPeople = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.travelers);
-    const tripIDs = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.destinationID);
-    const destinationCosts = tripIDs.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
+
+  totalCostPerTrip(id, date) {
+    const tripByDate = this.findAllTravelerTrips(id).filter(trip => trip.date === date)
+    const totalPerTrip = tripByDate
+    .reduce((acc, curr) => {
+      this.getDestinationData(id).forEach((element) => {
+        if (element.id === curr.destinationID) {
+          const lodging = element.estimatedLodgingCostPerDay * curr.duration;
+          const flight = element.estimatedFlightCostPerPerson * curr.travelers
+          const totalBeforeComish = flight + lodging
+          const total = totalBeforeComish/10 + totalBeforeComish
+          acc.push(total);
         }
       });
       return acc;
-    }, []);
+    }, [])
+
+    return totalPerTrip[0]
+  }
+
+
+  totalCostByYear(id, year) {
     const tripsByYear = this.findAllTravelerTrips(id).filter(
       (trip) => trip.date.split("/")[0] === year
     );

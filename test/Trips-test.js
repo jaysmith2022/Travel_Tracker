@@ -49,6 +49,10 @@ describe("Trips", function () {
     );
   });
 
+  it("Should Calculate total price per trip", function () {
+    expect(allData.totalCostPerTrip(2, "2019/09/27")).to.equal(3762);
+  })
+
   it("should calculate total cost for trips taken by year", function () {
     expect(allData.totalCostByYear(2, "2019")).to.equal(3762);
     expect(allData.totalCostByYear(2, "2020")).to.equal(24551);

@@ -18,6 +18,9 @@ body {
   box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 75%);
   flex-direction: row;
   align-items: center;
+  background-color: #00253c;
+  justify-content: space-between;
+  color: white;
 }
 
 .logo-section {
@@ -50,6 +53,11 @@ h1 {
   height: 100%;
   width: 30%;
   box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
+}
+
+.past-trips {
+  height: 30%;
+  margin-left: 20px;
 }
 
 .trip-area {
@@ -88,6 +96,11 @@ h3 {
 .traveler-name {
   width: 430px;
   font-size: xxx-large;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 30px;
 }
 
 
