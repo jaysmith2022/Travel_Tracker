@@ -45,10 +45,28 @@ function displayFirstName() {
 }
 
 function displayTravelersTrips() {
-    return trips.findPastTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+    trips.findPastTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
     .forEach((element, index) => {
         return document.getElementById('pastTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
     })
+
+    if(trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
+        return document.getElementById('currentTrips').innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+    }else {
+        return trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+        .forEach((element, index) => {
+            return document.getElementById('currentTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+        })
+        }
+    
+
+
+    // trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+    // .forEach((element, index) => {
+    //     return document.getElementById('currentTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+    // })
+
+
 }
 
 

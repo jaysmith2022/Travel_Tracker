@@ -42,6 +42,9 @@ class Trips {
     const upcomingTrips = this.findAllTravelerTrips(id)
       .filter((trip) => trip.date > date)
       .map((el) => el.destinationID);
+      if(upcomingTrips.length === 0) {
+        return "You Don't Have Any Upcoming Trips, Book Now!"
+      } else {
     return upcomingTrips.reduce((acc, curr) => {
       this.destinationData.forEach((element) => {
         if (element.id === curr) {
@@ -50,6 +53,7 @@ class Trips {
       });
       return acc;
     }, []);
+  }
   }
 
 

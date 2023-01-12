@@ -55,7 +55,8 @@ h1 {
   box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
 }
 
-.past-trips {
+.past-trips,
+.current-trips {
   height: 30%;
   margin-left: 20px;
 }

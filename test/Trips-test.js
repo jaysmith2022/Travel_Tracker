@@ -49,6 +49,12 @@ describe("Trips", function () {
     );
   });
 
+  it("Should display message if there are no upcoming trips", function () {
+    expect(allData.findUpcomingTrips(2, "2023/01/11")[0].destination).to.equal(
+      "You Don't Have Any Upcoming Trips, Book Now!"
+    );
+  })
+
   it("Should Calculate total price per trip", function () {
     expect(allData.totalCostPerTrip(2, "2019/09/27")).to.equal(3762);
   })
