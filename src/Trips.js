@@ -89,8 +89,6 @@ class Trips {
       });
       return acc;
     }, [])
-
-
   }
 
 

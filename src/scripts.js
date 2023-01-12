@@ -67,7 +67,9 @@ function displayTravelersTrips() {
                 return document.getElementById('pendingTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
             })
             }
-    
+    function displayTotalCostYear() {
+        
+    }
 }
 
 
