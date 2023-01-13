@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import './images/travel-logo.png'
-import { fetchData } from './apiCalls';
+import { fetchData, postData } from './apiCalls';
 import Traveler from './traveler';
 import Trips from './trips';
 import * as dayjs from "dayjs";
@@ -21,13 +21,16 @@ const pendingTrips = document.querySelector('#pendingTrips')
 const travelerName = document.querySelector('#travelerName')
 const totalForYear = document.querySelector('#yearCost')
 const calendar = document.getElementById("myDate");
+const userDestinationInput = document.getElementById("destination")
+const userTravelerInput = document.getElementById("numberOfTravelers")
+const userDurationInput = document.getElementById("vacationLength")
 const calendarBtn = document.querySelector("#calendarBtn");
 
 let travelUser;
 let trips;
 
 
-calendarBtn.addEventListener('click', setCalendarDate)
+calendarBtn.addEventListener('click', getUserInputs)
 
 
 window.addEventListener('load', fakeLogin)
@@ -90,9 +93,7 @@ const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
 })
-
 totalForYear.innerText = `${formatter.format(trips.totalCostByYear(travelUser.id, dayjs().year()))} for ${dayjs().year()}`
-
 }
 
 
@@ -138,6 +139,32 @@ document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.uns
 function setCalendarDate() {
     calendar.setAttribute('min', dayjs().format('YYYY-MM-DD'))
   }
+
+
+
+
+function getUserInputs() {
+    const userInputDate = dayjs(calendar.value).format('YYYY/MM/DD')
+    const userDestination = userDestinationInput.value 
+    const userTravelers = userTravelerInput.value
+    const userDuration = userDurationInput.value
+    const getLastId = trips.tripsData.sort((a, b) => b.id - a.id)[0].id
+
+
+    postData ({
+        id: getLastId + 1, 
+        userID: travelUser.id, 
+        destinationID: trips.destinationData.find(vacay => vacay.destination === userDestination).id, 
+        travelers: +userTravelers,
+        date: userInputDate,
+        duration: +userDuration,
+        status: 'pending',
+        suggestedActivites: []
+    })
+}
+
+
+
 
 
 
