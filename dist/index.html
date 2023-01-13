@@ -38,9 +38,6 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide slide_1" id="swipeSlide">Slide 1</div>
                 <div class="swiper-slide slide_2" id="swipeSlide2"></div>
-                <!-- <div class="swiper-slide slide_3" id="swipeSlide3">Slide 3</div>
-                <div class="swiper-slide slide_4" id="swipeSlide4">Slide 4</div>
-                <div class="swiper-slide slide_5" id="swipeSlide5">Slide 5</div> -->
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -49,21 +46,30 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide" id="swiperText">Slide 1</div>
                 <div class="swiper-slide" id="swiperText2">So does this place</div>
-                <!-- <div class="swiper-slide slide_3" id="swiperText3">Slide 3</div>
-                <div class="swiper-slide slide_4" id="swiperText4">Slide 4</div>
-                <div class="swiper-slide slide_5" id="swiperText5">Slide 5</div> -->
             </div>
         </div>
       </div>
     </section>
   <section class="search-trips">
-    <form>
+    <form class="input-form">
       <label for="myDate" class="date-picker-title"><strong>Choose a Date: </strong></label>
       <input type="date" id="myDate" class="date-picker"/>
+      <label for="destination" class="destination-dropdown-title"><strong>Choose a Place: </strong>
+      <select type="dropdown" id="destination" class="destination-dropdown" placeholder="Select a Place">
+        <option value="" disabled selected></option>
+        <option value="Some place in Chile">Some Dumb place in Chile</option>
+      </select>
+      </label>
+      
+        
+      
       <label for="numberOfTravelers" class="num-travelers"><strong>Number of Travelers:</strong></label>
       <input type="number" name="num-travelers" min="0" max="10" placeholder="Number of Travelers" id="numberOfTravelers" class="num-travelers-box">
       <label for="vacationLength" class="vacation-length"><strong>Duration:</strong></label>
       <input type="number" name="vacation-length" min="0" max="10" placeholder="Length of Stay" id="vacationLength" class="vacation-length-box">
+      <div class="calendar-button-container">
+        <button class="calendar-button" id="calendarBtn" type="button">Submit</button>
+      </div>
     </form>
   </section>
   </section>

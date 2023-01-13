@@ -102,7 +102,9 @@ h1 {
 
 .vacation-length-box,
 .date-picker,
-.num-travelers-box {
+.num-travelers-box,
+.destination-dropdown
+ {
   width: 135px;
   height:21px;
 }
@@ -167,7 +169,7 @@ h3 {
   border: 1rem solid;
   border-radius: 5px;
   box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
-  width: 580px;
+  width: 700px;
   height: 320px;
 }
 
@@ -181,6 +183,31 @@ h3 {
 img {
   overflow: hidden;
 }
+
+.calendar-button {
+  width: 60px;
+  height: 24px;
+}
+
+.input-form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-picker-title,
+.num-travelers,
+.vacation-length,
+.calendar-button-container,
+.destination-dropdown-title {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
 
 
 

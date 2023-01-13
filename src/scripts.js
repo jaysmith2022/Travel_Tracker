@@ -20,16 +20,19 @@ const currentTrips = document.querySelector('#currentTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
 const travelerName = document.querySelector('#travelerName')
 const totalForYear = document.querySelector('#yearCost')
-
+const calendar = document.getElementById("myDate");
+const calendarBtn = document.querySelector("#calendarBtn");
 
 let travelUser;
 let trips;
-let currentUser;
+
+
+calendarBtn.addEventListener('click', setCalendarDate)
+
 
 window.addEventListener('load', fakeLogin)
-
 function fakeLogin() {
-    userLogin(9)
+    userLogin(2)
 }
 
 function userLogin(userID) {
@@ -51,6 +54,7 @@ function displayUserInfo() {
     displayTravelersTrips()
     displayTotalCostYear()
     showVacationSpots()
+    setCalendarDate()
 }
 function displayFirstName() {
     travelerName.innerText = `Welcome, ${travelUser.getFirstName()}`
@@ -94,10 +98,7 @@ totalForYear.innerText = `${formatter.format(trips.totalCostByYear(travelUser.id
 
 
 function showVacationSpots() {
-
 Swiper.use([Navigation])
-
-
 let swiper = new Swiper(".mySwiper", {
     spaceBetween: 10,
     slidesPerView: 4,
@@ -132,11 +133,13 @@ let swiper = new Swiper(".mySwiper", {
 document.getElementById('swipeSlide').innerHTML = `<img src="https://images.unsplash.com/photo-1506982724953-b1fbe939e1e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" width="100%" height="100%"/>`
 document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"/>`
 document.getElementById('swiperText').innerText = `This place sucks`
-
 }
 
 
+function setCalendarDate() {
+    calendar.setAttribute('min', dayjs().format('YYYY-MM-DD'))
 
+  }
 
 
 
