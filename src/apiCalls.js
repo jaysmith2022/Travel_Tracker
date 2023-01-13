@@ -14,7 +14,7 @@ function postData(newTripData, data) {
     },
 }
 
-return fetch(`http://localhost:3001/api/v1/${data}`, newTripData)
+return fetch(`http://localhost:3001/api/v1/${data}`, postObj)
 .then(response => {
     if(!response.ok) {
         throw new Error(`Unable to Save Trip`)

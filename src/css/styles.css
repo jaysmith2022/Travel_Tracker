@@ -194,10 +194,8 @@ img {
 
 .input-form {
   display: flex;
-  align-content: center;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 
 .date-picker-title,
@@ -211,6 +209,8 @@ img {
   align-content: center;
   align-items: center;
 }
+
+
 
 
 

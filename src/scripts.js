@@ -25,6 +25,7 @@ const userDestinationInput = document.getElementById("destination")
 const userTravelerInput = document.getElementById("numberOfTravelers")
 const userDurationInput = document.getElementById("vacationLength")
 const calendarBtn = document.querySelector("#calendarBtn");
+const errorMessage = document.getElementById('errorMessage')
 
 let travelUser;
 let trips;
@@ -141,7 +142,33 @@ function setCalendarDate() {
   }
 
 
+function checkInputValidity() {
+    if(!calendar.value || !userDestinationInput.value || !userTravelerInput.value || userDurationInput.value) {
+        return inputErrorMessage("Please Fill Out All Available Fields")
+    }
+    if(+userTravelerInput.value < 0 || +userDurationInput.value < 0) {
+        return inputErrorMessage('Please Enter A Positive Number')
+    }
+    if(+userTravelerInput.value > 40) {
+         return inputErrorMessage("For bookings with over 40 travelers, Please call our 24 hour call center at 1-800-392-6612")
+    }
+    if(+userDurationInput.value > 30) {
+         return inputErrorMessage("For bookings that extend over 30 days, Please call our 24 hour call center at 1-800-392-6612")
+    }
+    if(userDataForDate(trips.findAllTravelerTrips(travelUser.id), travelUser.id, dayjs(calendar.value).format('YYYY/MM/DD')))
+    return inputErrorMessage("Vacation already booked for that date. Please reach out to your Travel Agent.")
+}
 
+function userDataForDate(data, id, date) {
+    return data.find((el) => el.userID === id && el.date === date);
+  };
+
+function inputErrorMessage(message) {
+errorMessage.innerHTML = `
+  <p class="submitErrorMessage"><strong>${message}</strong></p>
+`;
+return false;
+}
 
 function getUserInputs() {
     const userInputDate = dayjs(calendar.value).format('YYYY/MM/DD')
@@ -150,7 +177,9 @@ function getUserInputs() {
     const userDuration = userDurationInput.value
     const getLastId = trips.tripsData.sort((a, b) => b.id - a.id)[0].id
 
-
+    if(!checkInputValidity()) {
+        return
+    }
     postData ({
         id: getLastId + 1, 
         userID: travelUser.id, 
