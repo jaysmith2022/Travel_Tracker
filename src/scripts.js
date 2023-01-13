@@ -16,7 +16,7 @@ import * as dayjs from "dayjs";
 
 
 const pastTrips = document.querySelector('#pastTrips')
-const currentTrips = document.querySelector('#currentTrips')
+const upcomingTrips = document.querySelector('#upcomingTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
 const travelerName = document.querySelector('#travelerName')
 const totalForYear = document.querySelector('#yearCost')
@@ -63,24 +63,24 @@ function displayFirstName() {
 function displayTravelersTrips() {
     trips.findPastTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
     .forEach((element, index) => {
-        return document.getElementById('pastTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+        pastTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
     })
 
     if(trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
-        document.getElementById('upcomingTrips').innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+        upcomingTrips.innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
     }else {
         trips.findUpcomingTrips(travelUser.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
         .forEach((element, index) => {
-            return document.getElementById('upcomingTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+            upcomingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
         })
         }
 
         if(trips.findPendingTrips(travelUser.id) === "You Don't Have Any Pending Trips, Book Now!") {
-            document.getElementById('pendingTrips').innerHTML += `<p>You Don't Have Any Pending Trips, Book Now!</p>`
+            pendingTrips.innerHTML += `<p>You Don't Have Any Pending Trips, Book Now!</p>`
         }else {
             trips.findPendingTrips(travelUser.id).map(el => el.destination)
             .forEach((element, index) => {
-                return document.getElementById('pendingTrips').innerHTML += `<p>${index +1}.) ${element}</p>`
+                pendingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
             })
             }
 }
@@ -132,13 +132,11 @@ let swiper = new Swiper(".mySwiper", {
 
 document.getElementById('swipeSlide').innerHTML = `<img src="https://images.unsplash.com/photo-1506982724953-b1fbe939e1e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" width="100%" height="100%"/>`
 document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"/>`
-document.getElementById('swiperText').innerText = `This place sucks`
 }
 
 
 function setCalendarDate() {
     calendar.setAttribute('min', dayjs().format('YYYY-MM-DD'))
-
   }
 
 

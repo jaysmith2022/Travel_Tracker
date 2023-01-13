@@ -42,12 +42,6 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-        <div thumbsSlider="" class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" id="swiperText">Slide 1</div>
-                <div class="swiper-slide" id="swiperText2">So does this place</div>
-            </div>
-        </div>
       </div>
     </section>
   <section class="search-trips">
@@ -55,14 +49,60 @@
       <label for="myDate" class="date-picker-title"><strong>Choose a Date: </strong></label>
       <input type="date" id="myDate" class="date-picker"/>
       <label for="destination" class="destination-dropdown-title"><strong>Choose a Place: </strong>
-      <select type="dropdown" id="destination" class="destination-dropdown" placeholder="Select a Place">
+      <select name="dropdownMenu" id="destination">
         <option value="" disabled selected></option>
-        <option value="Some place in Chile">Some Dumb place in Chile</option>
+        <option value="Lima, Peru">Lima, Peru</option>
+        <option value="Stockholm, Sweden">Stockholm, Sweden</option>
+        <option value="Sydney, Austrailia">Sydney, Austrailia</option>
+        <option value="Cartagena, Colombia">Cartagena, Colombia</option>
+        <option value="Madrid, Spain">Madrid, Spain</option>
+        <option value="Jakarta, Indonesia">Jakarta, Indonesia</option>
+        <option value="Paris, France">Paris, France</option>
+        <option value="Tokyo, Japan">Tokyo, Japan</option>
+        <option value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
+        <option value="Toronto, Canada">Toronto, Canada</option>
+        <option value="Mikonos, Greece">Mikonos, Greece</option>
+        <option value="Wellington, New Zealand">Wellington, New Zealand</option>
+        <option value="St. Petersburg, Russia">St. Petersburg, Russia</option>
+        <option value="Marrakesh, Morocco">Marrakesh, Morocco</option>
+        <option value="Manila, Philippines">Manila, Philippines</option>
+        <option value="Bangkok, Thailand">Bangkok, Thailand</option>
+        <option value="Jaipur, India">Jaipur, India</option>
+        <option value="Cape Town, South Africa">Cape Town, South Africa</option>
+        <option value="Quito, Ecuador">Quito, Ecuador</option>
+        <option value="Miami, Florida">Miami, Florida</option>
+        <option value="Tulum, Mexico">Tulum, Mexico</option>
+        <option value="Rome, Italy">Rome, Italy</option>
+        <option value="Copenhagen, Denmark">Copenhagen, Denmark</option>
+        <option value="Vilnius, Lithuania">Vilnius, Lithuania</option>
+        <option value="New York, New York">New York, New York</option>
+        <option value="London, England">London, England</option>
+        <option value="San Francisco, California">San Francisco, California</option>
+        <option value="San Juan, Puerto Rico">San Juan, Puerto Rico</option>
+        <option value="Willemstad, Curaçao">Willemstad, Curaçao</option>
+        <option value="Antananarivo, Madagascar">Antananarivo, Madagascar</option>
+        <option value="Colombo, Sri Lanka">Colombo, Sri Lanka</option>
+        <option value="Kathmandu, Nepal">Kathmandu, Nepal</option>
+        <option value="Brussels, Belgium">Brussels, Belgium</option>
+        <option value="Seoul, South Korea">Seoul, South Korea</option>
+        <option value="Anchorage, Alaska">Anchorage, Alaska</option>
+        <option value="Reykjavík, Iceland">Reykjavík, Iceland</option>
+        <option value="Frankfurt, Germany">Frankfurt, Germany</option>
+        <option value="Helsinki, Finland">Helsinki, Finland</option>
+        <option value="Porto, Portugal">Porto, Portugal</option>
+        <option value="La Isla Tortuga, Costa Rica">La Isla Tortuga, Costa Rica</option>
+        <option value="Montego Bay, Jamaica">Montego Bay, Jamaica</option>
+        <option value="Santo Domingo, Dominican Republic">Santo Domingo, Dominican Republic</option>
+        <option value="Nassau, The Bahamas">Nassau, The Bahamas</option>
+        <option value="Caye Caulker, Belize">Caye Caulker, Belize</option>
+        <option value="Calgary, Canada">Calgary, Canada</option>
+        <option value="Victoria, Seychelles">Victoria, Seychelles</option>
+        <option value="Zürich, Switzerland">Zürich, Switzerland</option>
+        <option value="Dar es Salaam, Tanzania">Dar es Salaam, Tanzania</option>
+        <option value="Castries, St Lucia">Castries, St Lucia</option>
+        <option value="Hobart, Tasmania">Hobart, Tasmania</option>
       </select>
-      </label>
-      
-        
-      
+      <!-- </label> -->
       <label for="numberOfTravelers" class="num-travelers"><strong>Number of Travelers:</strong></label>
       <input type="number" name="num-travelers" min="0" max="10" placeholder="Number of Travelers" id="numberOfTravelers" class="num-travelers-box">
       <label for="vacationLength" class="vacation-length"><strong>Duration:</strong></label>
@@ -70,7 +110,7 @@
       <div class="calendar-button-container">
         <button class="calendar-button" id="calendarBtn" type="button">Submit</button>
       </div>
-    </form>
+    </div>
   </section>
   </section>
   </main>
