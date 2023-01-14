@@ -38,6 +38,7 @@ describe("Trips", function () {
   });
 
   it("Should find all past trips", function () {
+    console.log(allData.findPastTrips(2, "2023/01/13"))
     expect(allData.findPastTrips(2, "2020/06/20")[1].destination).to.equal(
       "Paris, France"
     );
