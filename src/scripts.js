@@ -124,7 +124,9 @@ function displayTotalCostYear(user, year) {
 }
 
 function setCalendarDate() {
-  calendar.setAttribute("min", dayjs().format("YYYY-MM-DD"));
+    calendar.setAttribute("min", dayjs().format("YYYY-MM-DD"))
+    calendar.setAttribute('value', dayjs().format("YYYY-MM-DD"))
+    calendar.setAttribute("max", dayjs().endOf('year', 'month', 'day').format("YYYY-MM-DD"))
 }
 
 function checkInputValidity() {
