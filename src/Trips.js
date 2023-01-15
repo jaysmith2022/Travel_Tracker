@@ -39,35 +39,50 @@ class Trips {
   findUpcomingTrips(id, date) {
     const upcomingTrips = this.findAllTravelerTrips(id)
       .filter((trip) => trip.date > date)
+      .filter((element) => element.status !== "pending")
       .map((el) => el.destinationID);
-    return upcomingTrips.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
-        }
-      });
-      return acc;
-    }, []);
+    if (upcomingTrips.length === 0) {
+      return "You Don't Have Any Upcoming Trips, Book Now!";
+    } else {
+      return upcomingTrips.reduce((acc, curr) => {
+        this.destinationData.forEach((element) => {
+          if (element.id === curr) {
+            acc.push(element);
+          }
+        });
+        return acc;
+      }, []);
+    }
+  }
+
+  findPendingTrips(id) {
+    const pendingTrips = this.findAllTravelerTrips(id)
+      .filter((el) => el.status === "pending")
+      .map((e) => e.destinationID);
+    if (pendingTrips.length === 0) {
+      return "You Don't Have Any Pending Trips, Book Now!";
+    } else {
+      return pendingTrips.reduce((acc, curr) => {
+        this.destinationData.forEach((element) => {
+          if (element.id === curr) {
+            acc.push(element);
+          }
+        });
+        return acc;
+      }, []);
+    }
+  }
+
+  totalCostPerBookedTrip(chosenDest, travelers, length) {
+    const lodging = chosenDest.estimatedLodgingCostPerDay * length;
+    const airFair = chosenDest.estimatedFlightCostPerPerson * travelers;
+    const total = lodging + airFair;
+    const travelAgentFee = total / 10;
+    const finalTotalByYear = total + travelAgentFee;
+    return +finalTotalByYear.toFixed(0);
   }
 
   totalCostByYear(id, year) {
-    const tripsByYearDuration = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.duration);
-    const tripsByNumPeople = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.travelers);
-    const tripIDs = this.findAllTravelerTrips(id)
-      .filter((trip) => trip.date.split("/")[0] === year)
-      .map((el) => el.destinationID);
-    const destinationCosts = tripIDs.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
-        }
-      });
-      return acc;
-    }, []);
     const tripsByYear = this.findAllTravelerTrips(id).filter(
       (trip) => trip.date.split("/")[0] === year
     );

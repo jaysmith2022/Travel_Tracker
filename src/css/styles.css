@@ -1,3 +1,266 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-image: linear-gradient(to right top, #add9f4, #91bdde, #76a1c7, #5e86b1, #476c9b);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+
+.top-nav {
+  display: flex;
+  height: 20%;
+  width: 100%;
+  box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 75%);
+  flex-direction: row;
+  align-items: center;
+  background-color: #00253c;
+  justify-content: space-between;
+  color: white;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  margin-left: 30px;
+}
+
+h1 {
+  height: 100%;
+  font-size: xxx-large;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.main {
+  display: flex;
+  height: 80%;
+  flex-direction: row;
+}
+
+.trip-details {
+  height: 100%;
+  width: 30%;
+  box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
+}
+
+.past-trips,
+.upcoming-trips,
+.pending-trips {
+  height: 30%;
+  margin-left: 20px;
+}
+
+.trip-area {
+  display: flex;
+  height: 100%;
+  width: 70%;
+  flex-direction: column;
+}
+
+
+
+.display-trips {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.search-trips {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.date-picker-title,
+.vacation-length,
+.num-travelers {
+  margin-left: 20px;
+}
+
+.vacation-length-box,
+.date-picker,
+.num-travelers-box,
+.destination-dropdown
+{
+  width: 135px;
+  height:21px;
+}
+
+
+.trip-details-header {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-information-page {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.yearly-cost-calculation {
+  display: flex;
+  margin-left: 25px;
+  font-size: large;
+  color: white;
+}
+
+.year-cost {
+  margin-left: 15px;
+}
+
+h3 {
+  margin-left: 20px;
+}
+
+.traveler-name {
+  width: 430px;
+  font-size: xxx-large;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.calendar-button {
+  width: 60px;
+  height: 24px;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-picker-title,
+.num-travelers,
+.vacation-length,
+.calendar-button-container,
+.destination-dropdown-title {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.main-section-message,
+.booked-message {
+  width: 62%;
+  height: 100%;
+  font-size: xx-large;
+  color: white;
+  font-style: italic;
+}
+
+
+.display-vacation-choice {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  border: 3px solid;
+  flex-direction: column;
+}
+
+.chosen-img-wrapper {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.chosen-img {
+  object-fit: cover;
+  height: 92%;
+}
+
+
+
+figcaption {
+  background-color: #000000;
+  display: flex;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  align-items: center;
+  overflow: visible;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.vacation-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+
+.book-now {
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.caption-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #000000;
+  align-items: center;
+}
+
+.book-now-btn,
+.go-back-btn {
+  height: 25px;
+  width: 90px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.total-cost-trip {
+  margin-bottom: 50px;
+  height: 10%;
+}
+
+
+
+.hidden {
+  display: none;
 }
