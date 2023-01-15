@@ -1,14 +1,10 @@
 import './css/styles.css';
-import Swiper, { Navigation } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import './images/travel-logo.png'
 import { fetchData, postData } from './apiCalls';
 import Traveler from './traveler';
 import Trips from './trips';
 import * as dayjs from "dayjs";
+import { createSwiper } from "./swiper"
 
 
 
@@ -26,6 +22,11 @@ const userTravelerInput = document.getElementById("numberOfTravelers")
 const userDurationInput = document.getElementById("vacationLength")
 const calendarBtn = document.querySelector("#calendarBtn");
 const errorMessage = document.getElementById('errorMessage')
+const swiperBox = document.querySelector('.swiper-container')
+const swiperImage = document.getElementById("swiperWrapper")
+const homePageMessage = document.getElementById("mainSectionMessage")
+
+
 
 let travelUser;
 let trips;
@@ -35,6 +36,9 @@ calendarBtn.addEventListener('click', postInputData)
 
 
 window.addEventListener('load', fakeLogin)
+
+
+
 
 
 function fakeLogin() {
@@ -50,7 +54,6 @@ function userLogin(userID) {
 }
 
 function updateDataModel(data) {
-    console.log(data[2])
     travelUser = new Traveler(data[2])
     trips = new Trips(data[1].destinations, data[0].trips.map(userTrips => {
         dayjs(userTrips.date).format('YYYY/MM/DD')
@@ -60,31 +63,38 @@ function updateDataModel(data) {
 
 
 function displayUserInfo() {
-    displayFirstName(travelUser)
+    displayUserName(travelUser)
     displayTravelersTrips(trips, travelUser)
     displayTotalCostYear(travelUser, dayjs().format('YYYY'))
-    showVacationSpots()
     setCalendarDate()
+    createSwiper(trips.destinationData)
+
 }
-function displayFirstName(user) {
+
+
+
+function displayUserName(user) {
     travelerName.innerText = `Welcome, ${user.getFirstName()}`
 }
 
+
+
 function displayTravelersTrips(repo, user) {
-    console.log(repo.findPastTrips(user.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination))
     repo.findPastTrips(user.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
     .forEach((element, index) => {
         pastTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
     })
-
-    if(repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
-        upcomingTrips.innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
-    }else {
-        repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
-        .forEach((element, index) => {
-            upcomingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
-        })
-        }
+    
+    // if(document.getElementById("result").innerHTML = pendingTrips.hasChildNoodes())
+    // if(repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
+    //     upcomingTrips.innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+    // }else {
+        
+    //     repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+    //     .forEach((element, index) => {
+    //         upcomingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
+    //     })
+    //     }
 
         if(repo.findPendingTrips(user.id) === "You Don't Have Any Pending Trips, Book Now!") {
             pendingTrips.innerHTML += `<p>You Don't Have Any Pending Trips, Book Now!</p>`
@@ -94,11 +104,21 @@ function displayTravelersTrips(repo, user) {
                 pendingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
             })
             }
+            if(pendingTrips.firstChild && repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
+                return upcomingTrips.innerHTML += `<p>Waiting For Your Vacation To Be Approved!</p>`
+            }
+            if(repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")) === "You Don't Have Any Upcoming Trips, Book Now!") {
+                upcomingTrips.innerHTML += `<p>You Don't Have Any Upcoming Trips, Book Now!</p>`
+            }else {
+                
+                repo.findUpcomingTrips(user.id, dayjs().format("YYYY/MM/DD")).map(el => el.destination)
+                .forEach((element, index) => {
+                    upcomingTrips.innerHTML += `<p>${index +1}.) ${element}</p>`
+                })
+                }
 }
 
 function displayTotalCostYear(user, year) {
-    console.log(year)
-    console.log(user)
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -107,44 +127,42 @@ totalForYear.innerText = `${formatter.format(trips.totalCostByYear(user.id, year
 }
 
 
-
-
-function showVacationSpots() {
-Swiper.use([Navigation])
-let swiper = new Swiper(".mySwiper", {
-    spaceBetween: 10,
-    slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
-   });
+// function showVacationSpots() {
+// Swiper.use([Navigation])
+// let swiper = new Swiper(".mySwiper", {
+//     spaceBetween: 10,
+//     slidesPerView: 4,
+//     freeMode: true,
+//     watchSlidesProgress: true,
+//    });
    
    
-   let swiper2 = new Swiper(".mySwiper2", {
-    spaceBetween: 10,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    thumbs: {
-      swiper: swiper,
-    },
-   });
+//    let swiper2 = new Swiper(".mySwiper2", {
+//     spaceBetween: 10,
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//     thumbs: {
+//       swiper: swiper,
+//     },
+//    });
 
-   let newSwiper = new Swiper(".mySwiper", {
-    lazy: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-   });
+//    let newSwiper = new Swiper(".mySwiper", {
+//     lazy: true,
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//    });
 
-document.getElementById('swipeSlide').innerHTML = `<img src="https://images.unsplash.com/photo-1506982724953-b1fbe939e1e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" width="100%" height="100%"/>`
-document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"/>`
-}
+// document.getElementById('swipeSlide').innerHTML = `<img src="https://images.unsplash.com/photo-1506982724953-b1fbe939e1e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" width="100%" height="100%"/>`
+// document.getElementById('swipeSlide2').innerHTML = `<img src="https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"/>`
+// }
 
 
 function setCalendarDate() {
@@ -181,7 +199,9 @@ errorMessage.innerHTML = `
 return false;
 }
 
-function postInputData() {
+function postInputData(event) {
+    event.preventDefault()
+
     const userInputDate = dayjs(calendar.value).format('YYYY/MM/DD')
     const userDestination = userDestinationInput.value 
     const userTravelers = userTravelerInput.value
@@ -202,6 +222,12 @@ function postInputData() {
     }, 'trips', updateDataModel, displayUserInfo, travelUser, clearInputs)
 }
 
+
+function displayAvailableVacations(event) {
+    event.preventDefault()
+    swiperBox.classList.remove('hidden')
+    homePageMessage.classList.add('hidden')
+}
 
   function clearInputs() {
     calendar.value = ""

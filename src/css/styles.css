@@ -91,9 +91,11 @@ h1 {
   height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
+
+
 .date-picker-title,
 .vacation-length,
 .num-travelers {
@@ -155,12 +157,10 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
-.swiper-slide {
-  margin: 0;
-  height: 20px
-}
 
 .mySwiper2 {
   border: 1rem solid;
@@ -171,21 +171,47 @@ h3 {
 }
 
 
+.swiper-wrapper {
+  display: flex;
+  transition-duration: 0ms;
+  transform: translate3d(0px, 0px, 0px);
+  flex-direction: row;
+  align-items: center;
+}
+
 .mySwiper {
   height: 30%;
   box-sizing: border-box;
   margin: 10px;
 }
 
-.swiper-slide {
+img,
+figure {
+  object-fit: cover;
+  height: 90%;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  width: 100%;
+  flex-direction: column;
 }
 
-img {
-  overflow: hidden;
+.swiper {
+  width: 800px;
 }
+
+figcaption {
+  background-color: #000000;
+  display: flex;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size:16px;
+  align-items: flex-end;
+  overflow: visible;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
 
 .calendar-button {
   width: 60px;
@@ -210,7 +236,17 @@ img {
   align-items: center;
 }
 
+.main-section-message {
+  width: 62%;
+  height: 100%;
+  font-size: xx-large;
+  color: white;
+  font-style: italic;
+}
 
+.hidden {
+  display: none;
+}
 
 
 

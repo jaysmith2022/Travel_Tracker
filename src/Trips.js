@@ -41,6 +41,7 @@ class Trips {
   findUpcomingTrips(id, date) {
     const upcomingTrips = this.findAllTravelerTrips(id)
       .filter((trip) => trip.date > date)
+      .filter(element => element.status !== "pending")
       .map((el) => el.destinationID);
       if(upcomingTrips.length === 0) {
         return "You Don't Have Any Upcoming Trips, Book Now!"
