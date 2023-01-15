@@ -8,6 +8,7 @@ class Trips {
   constructor(destinationData, tripsData) {
     this.destinationData = destinationData;
     this.tripsData = tripsData;
+    console.log(this.tripsData.map(el => el.date))
   }
 
   findAllTravelerTrips(id) {
