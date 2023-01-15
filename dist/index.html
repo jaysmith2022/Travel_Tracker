@@ -15,7 +15,7 @@
     </section>
     <p class="traveler-name" id="travelerName"></p>
   </nav>
-    <main class="main">
+  <main class="main">
     <section class="trip-details">
       <div class="yearly-cost-calculation">
         <p class="trip-total-title">Total Spent for Current Year:</p>
@@ -33,18 +33,14 @@
     </section>
   <section class="trip-area">
     <section class="display-trips">
-      <!-- <h4 class="main-section-message" id="mainSectionMessage">Welcome to Travel Tracker! The premier travel agency for the extreme northwestern eastern United States! Ready to Book a trip? Fill out the form below. After you book your vacation it will be added to your pending trips. A licensed travel agent will reach out to you within 1 business dayto finalize your dream vacation. Bon Voyage!" - <span style="color:black">Abraham Lincoln</span></h4> -->
-      <div class="swiper-container" id="swiperContainer">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper2" id="swiperWrapper">
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-      </div>
+      <h4 class="main-section-message" id="mainSectionMessage">Welcome to Travel Tracker! The premier travel agency for the extreme northwestern eastern United States! Ready to Book a trip? Fill out the form below. After you book your vacation it will be added to your pending trips. A licensed travel agent will reach out to you within 1 business dayto finalize your dream vacation. Bon Voyage!" - <span style="color:black">Abraham Lincoln</span></h4>
+      <h4 class="booked-message hidden" id="bookedMessage">Thank you for booking your trip with Travel Tracker! A travel agent will be in contact with you within 1 business days to finalize your dream vacation. Bon Voyage!" - <span style="color:black">Abraham Lincoln</span></h4>
+      <article class="display-vacation-choice hidden" id="vacationDisplay">
+      </article>
     </section>
   <section class="search-trips">
-    <form class="input-form">
+    <p class="total-cost-trip" id="totalTripCost"></p>
+    <form class="input-form" id="inputForm">
       <label for="myDate" class="date-picker-title"><strong>Choose a Date: </strong></label>
       <input type="date" id="myDate" class="date-picker"/>
       <label for="destination" class="destination-dropdown-title"><strong>Choose a Place: </strong></label>
@@ -115,6 +111,7 @@
 
   </section>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="bundle.js"></script>
 </body>
 </html>

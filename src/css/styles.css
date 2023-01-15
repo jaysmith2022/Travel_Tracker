@@ -78,7 +78,7 @@ h1 {
 
 
 .display-trips {
-  height: 50%;
+  height: 60%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ h1 {
 
 .search-trips {
   width: 100%;
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,70 +149,6 @@ h3 {
   margin-right: 30px;
 }
 
-.swiper-container {
-  width: 100%;
-}
-
-.swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-
-
-.mySwiper2 {
-  border: 1rem solid;
-  border-radius: 5px;
-  box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 75%);
-  width: 700px;
-  height: 320px;
-}
-
-
-.swiper-wrapper {
-  display: flex;
-  transition-duration: 0ms;
-  transform: translate3d(0px, 0px, 0px);
-  flex-direction: row;
-  align-items: center;
-}
-
-.mySwiper {
-  height: 30%;
-  box-sizing: border-box;
-  margin: 10px;
-}
-
-img,
-figure {
-  object-fit: cover;
-  height: 90%;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-
-.swiper {
-  width: 800px;
-}
-
-figcaption {
-  background-color: #000000;
-  display: flex;
-  color: white;
-  height: 100%;
-  width: 100%;
-  font-size:16px;
-  align-items: flex-end;
-  overflow: visible;
-  justify-content: center;
-  flex-direction: row;
-}
-
-
-
 .calendar-button {
   width: 60px;
   height: 24px;
@@ -236,7 +172,8 @@ figcaption {
   align-items: center;
 }
 
-.main-section-message {
+.main-section-message,
+.booked-message {
   width: 62%;
   height: 100%;
   font-size: xx-large;
@@ -244,33 +181,86 @@ figcaption {
   font-style: italic;
 }
 
-.hidden {
-  display: none;
+
+.display-vacation-choice {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  border: 3px solid;
+  flex-direction: column;
+}
+
+.chosen-img-wrapper {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.chosen-img {
+  object-fit: cover;
+  height: 92%;
 }
 
 
 
+figcaption {
+  background-color: #000000;
+  display: flex;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  align-items: center;
+  overflow: visible;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.vacation-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+
+.book-now {
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.caption-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #000000;
+  align-items: center;
+}
+
+.book-now-btn,
+.go-back-btn {
+  height: 25px;
+  width: 90px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.total-cost-trip {
+  margin-bottom: 50px;
+  height: 10%;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.hidden {
+  display: none;
+}

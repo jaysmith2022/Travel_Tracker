@@ -34,64 +34,53 @@ class Trips {
       });
       return acc;
     }, []);
-
-    
   }
 
   findUpcomingTrips(id, date) {
     const upcomingTrips = this.findAllTravelerTrips(id)
       .filter((trip) => trip.date > date)
-      .filter(element => element.status !== "pending")
+      .filter((element) => element.status !== "pending")
       .map((el) => el.destinationID);
-      if(upcomingTrips.length === 0) {
-        return "You Don't Have Any Upcoming Trips, Book Now!"
-      } else {
-        return upcomingTrips.reduce((acc, curr) => {
+    if (upcomingTrips.length === 0) {
+      return "You Don't Have Any Upcoming Trips, Book Now!";
+    } else {
+      return upcomingTrips.reduce((acc, curr) => {
         this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
-        }
-      });
-      return acc;
-    }, []);
-  }
+          if (element.id === curr) {
+            acc.push(element);
+          }
+        });
+        return acc;
+      }, []);
+    }
   }
 
   findPendingTrips(id) {
     const pendingTrips = this.findAllTravelerTrips(id)
-    .filter((el) => el.status === "pending").map(e => e.destinationID) 
-    if(pendingTrips.length === 0) {
-      return "You Don't Have Any Pending Trips, Book Now!"
+      .filter((el) => el.status === "pending")
+      .map((e) => e.destinationID);
+    if (pendingTrips.length === 0) {
+      return "You Don't Have Any Pending Trips, Book Now!";
     } else {
-    return pendingTrips.reduce((acc, curr) => {
-    this.destinationData.forEach((element) => {
-      if (element.id === curr) {
-        acc.push(element);
-      }
-    });
-    return acc;
-  }, []);
-}
-}
-  
-
-
-  totalCostPerTrip(id) {
-    return this.findAllTravelerTrips(id)
-    .reduce((acc, curr) => {
-      this.getDestinationData(id).forEach((element) => {
-        if (element.id === curr.destinationID) {
-          const lodging = element.estimatedLodgingCostPerDay * curr.duration;
-          const flight = element.estimatedFlightCostPerPerson * curr.travelers
-          const totalBeforeComish = flight + lodging
-          const total = totalBeforeComish/10 + totalBeforeComish
-          acc.push(total);
-        }
-      });
-      return acc;
-    }, [])
+      return pendingTrips.reduce((acc, curr) => {
+        this.destinationData.forEach((element) => {
+          if (element.id === curr) {
+            acc.push(element);
+          }
+        });
+        return acc;
+      }, []);
+    }
   }
 
+  totalCostPerBookedTrip(chosenDest, travelers, length) {
+    const lodging = chosenDest.estimatedLodgingCostPerDay * length;
+    const airFair = chosenDest.estimatedFlightCostPerPerson * travelers;
+    const total = lodging + airFair;
+    const travelAgentFee = total / 10;
+    const finalTotalByYear = total + travelAgentFee;
+    return +finalTotalByYear.toFixed(0);
+  }
 
   totalCostByYear(id, year) {
     const tripsByYear = this.findAllTravelerTrips(id).filter(
