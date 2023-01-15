@@ -237,7 +237,7 @@ function displayChosenTrips(event) {
       +userTravelerInput.value,
       +userDurationInput.value
     )
-  )}`;
+  )}. **10% Agent fee included in price!**`;
 
   displayVacationChoice.innerHTML += `
     <figure class="chosen-img-wrapper">
