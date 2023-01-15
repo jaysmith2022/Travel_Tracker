@@ -38,7 +38,6 @@ describe("Trips", function () {
   });
 
   it("Should find all past trips", function () {
-    console.log(allData.findPastTrips(2, "2023/01/13"))
     expect(allData.findPastTrips(2, "2020/06/20")[1].destination).to.equal(
       "Paris, France"
     );
@@ -57,7 +56,7 @@ describe("Trips", function () {
   })
 
   it("Should return all pending trips", function () {
-    expect(allData.findPendingTrips(2, "2023/01/11")[0].destination).to.equal(
+    expect(allData.findPendingTrips(2)[0].destination).to.equal(
       "Nassau, The Bahamas"
     );
   })
@@ -68,12 +67,8 @@ describe("Trips", function () {
     );
   })
 
-  // it("Should Calculate total price per trip", function () {
-  //   expect(allData.totalCostPerTrip(2, "2019/09/27")).to.deep.equal([3762, 6644, 2183.5, 2183.5, 1529, 1529, 10989, 3205.4]);
-  // })
-
   it("should calculate total cost for trips taken by year", function () {
-    // expect(allData.totalCostByYear(2, "2019")).to.equal(3762);
+    expect(allData.totalCostByYear(2, "2019")).to.equal(3762);
     expect(allData.totalCostByYear(2, "2020")).to.equal(24551);
   });
 });

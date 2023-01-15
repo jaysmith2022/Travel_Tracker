@@ -136,7 +136,7 @@ function checkInputValidity() {
   ) {
     return inputErrorMessage("Please Fill Out All Available Fields");
   }
-  if (+userTravelerInput.value < 0 || +userDurationInput.value < 0) {
+  if (+userTravelerInput.value <= 0 || +userDurationInput.value <= 0) {
     return inputErrorMessage("Please Enter A Positive Number");
   }
   if (+userTravelerInput.value > 40) {
@@ -227,7 +227,6 @@ function displayChosenTrips(event) {
     status: "pending",
     suggestedActivities: [],
   };
-  console.log(travelUser.trips);
   travelUser.trips.push(storedTrips);
 
   displayTripCost.innerText = `Estimated total cost for this trip is ${formatter.format(
@@ -243,7 +242,11 @@ function displayChosenTrips(event) {
     <img class="chosen-img" src=${chosenDestination.image} alt=${chosenDestination.alt}>
     <div class="caption-container">
     <div class="vacation-info-container">
-    <figcaption class="vacation-caption><span style="color:red">Place:</span>&nbsp${chosenDestination.destination}&nbsp&nbsp<span style="color:red">Lodging Per Day:</span>&nbsp$${chosenDestination.estimatedLodgingCostPerDay}.00&nbsp&nbsp<span style="color:red">Flight RT Per Person:</span>&nbsp$${chosenDestination.estimatedFlightCostPerPerson}.00&nbsp&nbsp</figcaption>
+    <figcaption class="vacation-caption">
+        <span style="color:red">Place:</span>&nbsp ${chosenDestination.destination}&nbsp&nbsp
+        <span style="color:red">Lodging Per Day:</span>&nbsp $${chosenDestination.estimatedLodgingCostPerDay}.00 &nbsp&nbsp
+        <span style="color:red">Flight RT Per Person:</span>&nbsp $${chosenDestination.estimatedFlightCostPerPerson}.00 &nbsp&nbsp
+    </figcaption>
     </div>
     <button class="book-now-btn" id="bookNowBtn" type="button">
     Book Now!

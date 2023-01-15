@@ -1,3 +1,9 @@
+import {
+  getDestinations,
+  getDestinationbyID,
+  getFlightAndLodging,
+} from "./helperFunctions";
+
 class Trips {
   constructor(destinationData, tripsData) {
     this.destinationData = destinationData;
@@ -12,28 +18,14 @@ class Trips {
     const tripsID = this.findAllTravelerTrips(id).map(
       (destID) => destID.destinationID
     );
-    return tripsID.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
-        }
-      });
-      return acc;
-    }, []);
+    return getDestinationbyID(tripsID, this.destinationData);
   }
 
   findPastTrips(id, date) {
     const pastTrip = this.findAllTravelerTrips(id)
       .filter((trip) => trip.date < date)
       .map((el) => el.destinationID);
-    return pastTrip.reduce((acc, curr) => {
-      this.destinationData.forEach((element) => {
-        if (element.id === curr) {
-          acc.push(element);
-        }
-      });
-      return acc;
-    }, []);
+    return getDestinationbyID(pastTrip, this.destinationData);
   }
 
   findUpcomingTrips(id, date) {
@@ -41,36 +33,22 @@ class Trips {
       .filter((trip) => trip.date > date)
       .filter((element) => element.status !== "pending")
       .map((el) => el.destinationID);
-    if (upcomingTrips.length === 0) {
-      return "You Don't Have Any Upcoming Trips, Book Now!";
-    } else {
-      return upcomingTrips.reduce((acc, curr) => {
-        this.destinationData.forEach((element) => {
-          if (element.id === curr) {
-            acc.push(element);
-          }
-        });
-        return acc;
-      }, []);
-    }
+    return getDestinations(
+      upcomingTrips,
+      "You Don't Have Any Upcoming Trips, Book Now!",
+      this.destinationData
+    );
   }
 
   findPendingTrips(id) {
     const pendingTrips = this.findAllTravelerTrips(id)
       .filter((el) => el.status === "pending")
       .map((e) => e.destinationID);
-    if (pendingTrips.length === 0) {
-      return "You Don't Have Any Pending Trips, Book Now!";
-    } else {
-      return pendingTrips.reduce((acc, curr) => {
-        this.destinationData.forEach((element) => {
-          if (element.id === curr) {
-            acc.push(element);
-          }
-        });
-        return acc;
-      }, []);
-    }
+    return getDestinations(
+      pendingTrips,
+      "You Don't Have Any Pending Trips, Book Now!",
+      this.destinationData
+    );
   }
 
   totalCostPerBookedTrip(chosenDest, travelers, length) {
@@ -83,32 +61,22 @@ class Trips {
   }
 
   totalCostByYear(id, year) {
-    const tripsByYear = this.findAllTravelerTrips(id).filter(
-      (trip) => trip.date.split("/")[0] === year
+    const totalLodgingByYear = getFlightAndLodging(
+      this.destinationData,
+      this.findAllTravelerTrips(id),
+      "estimatedLodgingCostPerDay",
+      "duration",
+      id,
+      year
     );
-    const totalLodgingByYear = tripsByYear
-      .reduce((acc, curr) => {
-        this.destinationData.forEach((element) => {
-          if (element.id === curr.destinationID) {
-            const lodging = element.estimatedLodgingCostPerDay * curr.duration;
-            acc.push(lodging);
-          }
-        });
-        return acc;
-      }, [])
-      .reduce((acc, curr) => acc + curr, 0);
-    const totalFlightByYear = tripsByYear
-      .reduce((acc, curr) => {
-        this.destinationData.forEach((element) => {
-          if (element.id === curr.destinationID) {
-            const flight =
-              element.estimatedFlightCostPerPerson * curr.travelers;
-            acc.push(flight);
-          }
-        });
-        return acc;
-      }, [])
-      .reduce((acc, curr) => acc + curr, 0);
+    const totalFlightByYear = getFlightAndLodging(
+      this.destinationData,
+      this.findAllTravelerTrips(id),
+      "estimatedFlightCostPerPerson",
+      "travelers",
+      id,
+      year
+    );
     const total = totalFlightByYear + totalLodgingByYear;
     const travelAgentFee = total / 10;
     const finalTotalByYear = total + travelAgentFee;
