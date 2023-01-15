@@ -52,12 +52,21 @@ function updateDataModel(data) {
   travelUser = new Traveler(data[2]);
   trips = new Trips(
     data[1].destinations,
-    data[0].trips.map((userTrips) => {
-      dayjs(userTrips.date).format("YYYY/MM/DD");
-      return userTrips;
-    })
-  );
-}
+    formatDates(data[0].trips.sort((high, low) => dayjs(high.date).diff(dayjs(low.date)))
+))
+  }
+
+
+
+
+function formatDates(array) {
+    return array.map((user) => {
+      return {
+        ...user,
+        date: dayjs(user.date).format("YYYY/MM/DD"),
+      };
+    });
+  }
 
 function displayUserInfo() {
   displayUserName(travelUser);
