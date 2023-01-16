@@ -6,7 +6,14 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right top, #add9f4, #91bdde, #76a1c7, #5e86b1, #476c9b);
+  background-image: linear-gradient(
+    to right top,
+    #add9f4,
+    #91bdde,
+    #76a1c7,
+    #5e86b1,
+    #476c9b
+  );
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -15,7 +22,6 @@ body {
   flex-direction: column;
   font-family: sans-serif;
 }
-
 
 .top-nav {
   display: flex;
@@ -75,8 +81,6 @@ h1 {
   flex-direction: column;
 }
 
-
-
 .display-trips {
   height: 60%;
   width: 100%;
@@ -95,7 +99,6 @@ h1 {
   align-items: center;
 }
 
-
 .date-picker-title,
 .vacation-length,
 .num-travelers,
@@ -106,12 +109,10 @@ h3 {
 .vacation-length-box,
 .date-picker,
 .num-travelers-box,
-.destination-dropdown
-{
+.destination-dropdown {
   width: 135px;
-  height:21px;
+  height: 21px;
 }
-
 
 .trip-details-header {
   display: flex;
@@ -135,10 +136,6 @@ h3 {
 .year-cost {
   margin-left: 15px;
 }
-
-/* h3 {
-  margin-left: 20px;
-} */
 
 .traveler-name {
   width: 430px;
@@ -182,7 +179,6 @@ h3 {
   font-style: italic;
 }
 
-
 .display-vacation-choice {
   display: flex;
   width: 90%;
@@ -192,20 +188,18 @@ h3 {
 }
 
 .chosen-img-wrapper {
-    height: 100%;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .chosen-img {
   object-fit: cover;
   height: 92%;
 }
-
-
 
 figcaption {
   background-color: #000000;
@@ -227,14 +221,13 @@ figcaption {
   height: 100%;
 }
 
-
 .book-now {
   display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 
 .caption-container {
@@ -321,7 +314,6 @@ figcaption {
   margin-top: 10px;
 }
 
-
 .login-message-container {
   width: 100%;
   display: flex;
@@ -341,7 +333,6 @@ figcaption {
   width: 100px;
   margin-bottom: 10px;
 }
-
 
 input,
 button {

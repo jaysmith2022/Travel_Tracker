@@ -6,14 +6,14 @@ import Trips from "./trips";
 import * as dayjs from "dayjs";
 
 const pastTrips = document.querySelector("#pastTrips");
-const topNav = document.querySelector(".top-nav")
-const mainPage = document.querySelector(".main")
-const tripPage = document.querySelector('.trip-area')
-const tripSearch = document.querySelector(".search-trips")
-const loginPageDisplay = document.querySelector('.login-main')
-const loginError = document.querySelector(".error-message-username")
-const userNameInput = document.getElementById('userName')
-const passwordInput = document.getElementById('password')
+const topNav = document.querySelector(".top-nav");
+const mainPage = document.querySelector(".main");
+const tripPage = document.querySelector(".trip-area");
+const tripSearch = document.querySelector(".search-trips");
+const loginPageDisplay = document.querySelector(".login-main");
+const loginError = document.querySelector(".error-message-username");
+const userNameInput = document.getElementById("userName");
+const passwordInput = document.getElementById("password");
 const upcomingTrips = document.querySelector("#upcomingTrips");
 const pendingTrips = document.querySelector("#pendingTrips");
 const travelerName = document.querySelector("#travelerName");
@@ -30,54 +30,49 @@ const displayVacationChoice = document.getElementById("vacationDisplay");
 const displayTripCost = document.getElementById("totalTripCost");
 const vacationDisplayArea = document.getElementById("vacationDisplay");
 const inputArea = document.getElementById("inputForm");
-const loginButton = document.getElementById("loginBtn")
-
+const loginButton = document.getElementById("loginBtn");
 
 let travelUser;
 let trips;
 
 calendarBtn.addEventListener("click", displayChosenTrips);
 vacationDisplayArea.addEventListener("click", bookedDisplay);
-loginButton.addEventListener("click", loginPage)
-
-
+loginButton.addEventListener("click", loginPage);
 
 function loginPage(event) {
-    event.preventDefault()
-    const loginUserName = userNameInput.value
-    const loginID = loginUserName.slice(8)
+  event.preventDefault();
+  const loginUserName = userNameInput.value;
+  const loginID = loginUserName.slice(8);
 
-    if (passwordInput.value !== 'travel' && !loginUserName.includes('traveler')) {
-        loginError.innerText = "Invalid Username or Password"
-        userNameInput.value = ""
-        passwordInput.value = ""
-        return
-    }
-    if (!loginUserName.includes('traveler')) {
-        userNameInput.value = ""
-        loginError.innerText = "Please Enter Correct Username"
-        return
-    }
-    if (passwordInput.value !== 'travel' && loginUserName !== "") {
-        passwordInput.value = ""
-        loginError.innerText = "Incorrect Password"
-        return
-    }
-    if (parseInt(loginID) > 50 || parseInt(loginID) <= 0) {
-        loginError.innerText = "User Doesn't Exist"
-        return 
-    }
-    userLogin(loginUserName.slice(8))
+  if (passwordInput.value !== "travel" && !loginUserName.includes("traveler")) {
+    loginError.innerText = "Invalid Username or Password";
+    userNameInput.value = "";
+    passwordInput.value = "";
+    return;
+  }
+  if (!loginUserName.includes("traveler")) {
+    userNameInput.value = "";
+    loginError.innerText = "Please Enter Correct Username";
+    return;
+  }
+  if (passwordInput.value !== "travel" && loginUserName !== "") {
+    passwordInput.value = "";
+    loginError.innerText = "Incorrect Password";
+    return;
+  }
+  if (parseInt(loginID) > 50 || parseInt(loginID) <= 0) {
+    loginError.innerText = "User Doesn't Exist";
+    return;
+  }
+  userLogin(loginUserName.slice(8));
 }
 
-
-
 function userLogin(userID) {
-    loginPageDisplay.classList.add('hidden')
-    topNav.classList.remove('hidden')
-    mainPage.classList.remove('hidden')
-    tripSearch.classList.remove('hidden')
-    tripPage.classList.remove('hidden')
+  loginPageDisplay.classList.add("hidden");
+  topNav.classList.remove("hidden");
+  mainPage.classList.remove("hidden");
+  tripSearch.classList.remove("hidden");
+  tripPage.classList.remove("hidden");
   fetchAll(userID)
     .then((data) => {
       updateDataModel(data);
@@ -94,21 +89,20 @@ function updateDataModel(data) {
   travelUser = new Traveler(data[2]);
   trips = new Trips(
     data[1].destinations,
-    formatDates(data[0].trips.sort((high, low) => dayjs(high.date).diff(dayjs(low.date)))
-))
-  }
-
-
-
+    formatDates(
+      data[0].trips.sort((high, low) => dayjs(high.date).diff(dayjs(low.date)))
+    )
+  );
+}
 
 function formatDates(array) {
-    return array.map((user) => {
-      return {
-        ...user,
-        date: dayjs(user.date).format("YYYY/MM/DD"),
-      };
-    });
-  }
+  return array.map((user) => {
+    return {
+      ...user,
+      date: dayjs(user.date).format("YYYY/MM/DD"),
+    };
+  });
+}
 
 function displayUserInfo() {
   displayUserName(travelUser);
@@ -175,9 +169,12 @@ function displayTotalCostYear(user, year) {
 }
 
 function setCalendarDate() {
-    calendar.setAttribute("min", dayjs().format("YYYY-MM-DD"))
-    calendar.setAttribute('value', dayjs().format("YYYY-MM-DD"))
-    calendar.setAttribute("max", dayjs().endOf('year', 'month', 'day').format("YYYY-MM-DD"))
+  calendar.setAttribute("min", dayjs().format("YYYY-MM-DD"));
+  calendar.setAttribute("value", dayjs().format("YYYY-MM-DD"));
+  calendar.setAttribute(
+    "max",
+    dayjs().endOf("year", "month", "day").format("YYYY-MM-DD")
+  );
 }
 
 function checkInputValidity() {
@@ -323,6 +320,9 @@ function bookedDisplay(event) {
     setTimeout(function timeout() {
       finalBookMessage.classList.add("hidden");
       homePageMessage.classList.remove("hidden");
+      userDestinationInput.value = "";
+      userTravelerInput.value = "";
+      userDurationInput.value = "";
     }, 10000);
   }
   if (event.target.className === "go-back-btn") {
@@ -336,7 +336,7 @@ function bookedDisplay(event) {
 }
 
 function clearInputs() {
-  calendar.value = "";
+  calendar.value = dayjs().format("YYYY-MM-DD");
   userDestinationInput.value = "";
   userTravelerInput.value = "";
   userDurationInput.value = "";
