@@ -6,6 +6,14 @@ import Trips from "./trips";
 import * as dayjs from "dayjs";
 
 const pastTrips = document.querySelector("#pastTrips");
+const topNav = document.querySelector(".top-nav")
+const mainPage = document.querySelector(".main")
+const tripPage = document.querySelector('.trip-area')
+const tripSearch = document.querySelector(".search-trips")
+const loginPageDisplay = document.querySelector('.login-main')
+const loginError = document.querySelector(".error-message-username")
+const userNameInput = document.getElementById('userName')
+const passwordInput = document.getElementById('password')
 const upcomingTrips = document.querySelector("#upcomingTrips");
 const pendingTrips = document.querySelector("#pendingTrips");
 const travelerName = document.querySelector("#travelerName");
@@ -22,23 +30,55 @@ const displayVacationChoice = document.getElementById("vacationDisplay");
 const displayTripCost = document.getElementById("totalTripCost");
 const vacationDisplayArea = document.getElementById("vacationDisplay");
 const inputArea = document.getElementById("inputForm");
+const loginButton = document.getElementById("loginBtn")
+
 
 let travelUser;
 let trips;
 
 calendarBtn.addEventListener("click", displayChosenTrips);
 vacationDisplayArea.addEventListener("click", bookedDisplay);
+loginButton.addEventListener("click", loginPage)
 
-window.addEventListener("load", fakeLogin);
 
-function fakeLogin() {
-  userLogin(2);
+
+function loginPage(event) {
+    event.preventDefault()
+    const loginUserName = userNameInput.value
+    const loginID = loginUserName.slice(8)
+
+    if (passwordInput.value !== 'travel' && !loginUserName.includes('traveler')) {
+        loginError.innerText = "Invalid Username or Password"
+        userNameInput.value = ""
+        passwordInput.value = ""
+        return
+    }
+    if (!loginUserName.includes('traveler')) {
+        userNameInput.value = ""
+        loginError.innerText = "Please Enter Correct Username"
+        return
+    }
+    if (passwordInput.value !== 'travel' && loginUserName !== "") {
+        passwordInput.value = ""
+        loginError.innerText = "Incorrect Password"
+        return
+    }
+    if (parseInt(loginID) > 50 || parseInt(loginID) <= 0) {
+        loginError.innerText = "User Doesn't Exist"
+        return 
+    }
+    userLogin(loginUserName.slice(8))
 }
 
 
 
-function userLogin() {
-  fetchAll(2)
+function userLogin(userID) {
+    loginPageDisplay.classList.add('hidden')
+    topNav.classList.remove('hidden')
+    mainPage.classList.remove('hidden')
+    tripSearch.classList.remove('hidden')
+    tripPage.classList.remove('hidden')
+  fetchAll(userID)
     .then((data) => {
       updateDataModel(data);
       displayUserInfo();
