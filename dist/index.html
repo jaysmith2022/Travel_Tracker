@@ -4,18 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" src="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <title>Travel Tracker</title>
 </head>
 <body>
-  <nav class="top-nav">
+  <section class="login-main">
+    <form class="login-container">
+      <div class="image-container">
+        <img src="./images/travel-logo.png" width="50%" alt="travel logo with a plane and the earth">
+      </div>
+      <div class="login-message-container">
+        <h2 class="login-message">Please Login</h2>
+      </div>
+      <div class="username-input">
+        <label for="userName">Username:</label>
+        <input type="text" id="userName" class="user-name" placeholder="Enter Username" name="userName" maxlength='10' required>
+      </div>
+      <div class="password-container">
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="password-box" placeholder=" Please Enter Password" name="password" maxlength='6' required>
+        <div>
+          <span class="error-message-username"></span>
+        </div>
+      </div>
+      <div class="loginbutton-container">
+        <button class="submit-login" id="loginBtn" type="submit">Login</button>
+      </div>
+    </form>
+  </section>
+  <nav class="top-nav hidden">
     <section class="logo-section">
-      <img src="./images/travel-logo.png" width="10%" alt="turing logo">
+      <img src="./images/travel-logo.png" width="10%" alt="travel logo with a plane and the earth">
       <h1>Travel Tracker</h1>
     </section>
     <p class="traveler-name" id="travelerName"></p>
   </nav>
-  <main class="main">
+  <main class="main hidden">
     <section class="trip-details">
       <div class="yearly-cost-calculation">
         <p class="trip-total-title">Total Spent for Current Year:</p>
@@ -31,14 +54,14 @@
         <p class="pending-trips" id="pendingTrips"></p>
     </section>
     </section>
-  <section class="trip-area">
+  <section class="trip-area hidden">
     <section class="display-trips">
       <h4 class="main-section-message" id="mainSectionMessage">Welcome to Travel Tracker! The premier travel agency for the extreme northwestern eastern United States! Ready to Book a trip? Fill out the form below. After you book your vacation it will be added to your pending trips. A licensed travel agent will reach out to you within 1 business dayto finalize your dream vacation. Bon Voyage!" - <span style="color:black">Abraham Lincoln</span></h4>
       <h4 class="booked-message hidden" id="bookedMessage">Thank you for booking your trip with Travel Tracker! A travel agent will be in contact with you within 1 business days to finalize your dream vacation. Bon Voyage!" - <span style="color:black">Abraham Lincoln</span></h4>
       <article class="display-vacation-choice hidden" id="vacationDisplay">
       </article>
     </section>
-  <section class="search-trips">
+  <section class="search-trips hidden">
     <p class="total-cost-trip" id="totalTripCost"></p>
     <form class="input-form" id="inputForm">
       <label for="myDate" class="date-picker-title"><strong>Choose a Date: </strong></label>
@@ -108,7 +131,6 @@
     <div class="error-message" id="errorMessage">
     </div>
   </section>
-
   </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

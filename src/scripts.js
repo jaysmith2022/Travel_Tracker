@@ -6,6 +6,10 @@ import Trips from "./trips";
 import * as dayjs from "dayjs";
 
 const pastTrips = document.querySelector("#pastTrips");
+const topNav = document.querySelector(".top-nav")
+const mainPage = document.querySelector(".main")
+const tripSearch = document.querySelector(".search-trips")
+const loginError = document.querySelector(".error-message-username")
 const upcomingTrips = document.querySelector("#upcomingTrips");
 const pendingTrips = document.querySelector("#pendingTrips");
 const travelerName = document.querySelector("#travelerName");
@@ -22,23 +26,28 @@ const displayVacationChoice = document.getElementById("vacationDisplay");
 const displayTripCost = document.getElementById("totalTripCost");
 const vacationDisplayArea = document.getElementById("vacationDisplay");
 const inputArea = document.getElementById("inputForm");
+const loginButton = document.getElementById("loginBtn")
+
 
 let travelUser;
 let trips;
 
 calendarBtn.addEventListener("click", displayChosenTrips);
 vacationDisplayArea.addEventListener("click", bookedDisplay);
+loginButton.addEventListener("click", function () {
+    
+})
 
-window.addEventListener("load", fakeLogin);
+window.addEventListener("load", loginPage);
 
-function fakeLogin() {
+function loginPage() {
   userLogin(2);
 }
 
 
 
-function userLogin() {
-  fetchAll(2)
+function userLogin(userID) {
+  fetchAll(userID)
     .then((data) => {
       updateDataModel(data);
       displayUserInfo();
