@@ -31,6 +31,10 @@ describe("Trips", function () {
     expect(allData.findAllTravelerTrips(2).length).to.deep.equal(6);
   });
 
+  it("Should return error message if user info not found", function () {
+    expect(allData.findAllTravelerTrips(60)).to.equal('No User Information');
+  })
+
   it("Should return all destination for traveler", function () {
     expect(allData.getDestinationData(2)[0].destination).to.deep.equal(
       "Toronto, Canada"
@@ -62,7 +66,7 @@ describe("Trips", function () {
   })
 
   it("Should return message if there are no pending trips", function () {
-    expect(allData.findPendingTrips(133, "2023/01/11")).to.equal(
+    expect(allData.findPendingTrips(1, "2023/01/11")).to.equal(
       "You Don't Have Any Pending Trips, Book Now!"
     );
   })

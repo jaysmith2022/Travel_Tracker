@@ -40,7 +40,7 @@ calendarBtn.addEventListener("click", displayChosenTrips);
 vacationDisplayArea.addEventListener("click", bookedDisplay);
 loginButton.addEventListener("click", loginPage)
 
-// window.addEventListener("load", userLogin);
+
 
 function loginPage(event) {
     event.preventDefault()
@@ -59,13 +59,11 @@ function loginPage(event) {
         return
     }
     if (passwordInput.value !== 'travel' && loginUserName !== "") {
-        console.log('password')
         passwordInput.value = ""
         loginError.innerText = "Incorrect Password"
         return
     }
     if (parseInt(loginID) > 50 || parseInt(loginID) <= 0) {
-        console.log(loginUserName.slice(8))
         loginError.innerText = "User Doesn't Exist"
         return 
     }

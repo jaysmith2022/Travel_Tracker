@@ -11,7 +11,12 @@ class Trips {
   }
 
   findAllTravelerTrips(id) {
-    return this.tripsData.filter((trip) => trip.userID === id);
+    const userTravel = this.tripsData.filter((trip) => trip.userID === id);
+    if(userTravel.length <= 0) {
+      return 'No User Information'
+    } else {
+      return userTravel
+    }
   }
 
   getDestinationData(id) {

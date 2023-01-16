@@ -98,7 +98,8 @@ h1 {
 
 .date-picker-title,
 .vacation-length,
-.num-travelers {
+.num-travelers,
+h3 {
   margin-left: 20px;
 }
 
@@ -135,9 +136,9 @@ h1 {
   margin-left: 15px;
 }
 
-h3 {
+/* h3 {
   margin-left: 20px;
-}
+} */
 
 .traveler-name {
   width: 430px;
