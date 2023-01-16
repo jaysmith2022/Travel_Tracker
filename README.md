@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jaysmith2022/Travel_Tracker">
-    <img src="src/images/fitlit_logo_gray.png" alt="Logo" width="300" height="250">
+    <img src="src/images/travel-logo.png" alt="Logo" width="125px" height="125px">
   </a>
 
 <h3 align="center">Travel Tracker</h3>
@@ -67,7 +67,6 @@ https://user-images.githubusercontent.com/107894408/211426209-aeb2d9ef-a410-41f6
 - [![CSS][css]][css-url]
 - [![HTML][html]][html-url]
 - [![Webpack][webpack]][webpack-url]
-- [![Chart.js][chart.js]][chart.js-url]
 - [![API][api]][api-url]
 - [![Mocha][mocha]][mocha-url]
 - [![Chai][chai]][chai-url]
@@ -81,10 +80,10 @@ https://user-images.githubusercontent.com/107894408/211426209-aeb2d9ef-a410-41f6
 
 ### Installation
 
-1. Fork the Repo from the [Repository](https://github.com/turingschool-examples/fitlit-starter-kit)
+1. Fork the Repo from the [Repository](https://github.com/jaysmith2022/Travel_Tracker)
 2. Clone the repo
    ```sh
-   git clone git@github.com:nordbyi/FitLit.git
+   git clone git@github.com:jaysmith2022/Travel_Tracker.git
    ```
 3. Install NPM packages
    ```sh
@@ -103,7 +102,7 @@ https://user-images.githubusercontent.com/107894408/211426209-aeb2d9ef-a410-41f6
 
 6. Clone the repo
       ```sh
-   git clone git@github.com:turingschool-examples/fitlit-api.git
+   git clone git@github.com:turingschool-examples/travel-tracker-api.git
    ```
 7. cd into it from terminal
 8. Install NPM packages
@@ -122,30 +121,22 @@ https://user-images.githubusercontent.com/107894408/211426209-aeb2d9ef-a410-41f6
 
 ## Roadmap
 
-- [x] Daily Step Goal Chart
-- [x] Daily Sleep Hours and Sleep Quality Chart
-- [x] Weekly Chart for Sleep & Hydration
-  - [x] Calendar to Choose Week the User wants to see
+- [x] Past, Current and Upcoming Vacations
+- [x] Form input to input desired vacation
+- [x] Display vacation with estimated price with added fee
 
-See the [open issues](https://github.com/nordbyi/FitLit/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jaysmith2022/Travel_Tracker).
 
 ## Future Additions
 
 - Add testing to helper function file
-- Adjust the post to find missing data and ignore data that exists
-- Fix FitLit logo
+- Add logout feature
+- Add a slider/glider for vacation display
 - Add page load to inform the user that the page is loading
-- Use the sequential order function that was created to check if dates are in sequential order
-- Make site more accessible by utilizing the voiceover to ensure it is more accessible
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[ian-badge]: https://img.shields.io/badge/-Ian%20Nordby-orange
-[ian-url]: https://github.com/nordbyi
-[patt-badge]: https://img.shields.io/badge/-Patt%20Sookmark-brightgreen
-[patt-url]: https://github.com/pattpjy
-[rae-badge]: https://img.shields.io/badge/-Rae%20Gebhart-blue
-[rae-url]: https://github.com/rae-107
+
 [jordan-badge]: https://img.shields.io/badge/-Jordan%20Smith-lightgrey
 [jordan-url]: https://github.com/jaysmith2022
 [mocha]: https://img.shields.io/badge/Mocha-FF2D20?style=for-the-badge&logo=mocha&logoColor=white
@@ -156,8 +147,6 @@ See the [open issues](https://github.com/nordbyi/FitLit/issues) for a full list 
 [webpack-url]: https://webpack.js.org/
 [dayjs]: https://img.shields.io/badge/-dayjs-fb6052?style=for-the-badge
 [dayjs-url]: https://www.npmjs.com/package/dayjs
-[chart.js]: https://img.shields.io/badge/Chart.js-35495E?style=for-the-badge&logo=chartdotjs&logoColor=4FC08D
-[chart.js-url]: https://www.chartjs.org/
 [css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css&logoColor=white
 [css-url]: https://www.w3.org/Style/CSS/Overview.en.html
 [html]: https://img.shields.io/badge/HTML-4A4A55?style=for-the-badge&logo=HTML&logoColor=FF3E00
