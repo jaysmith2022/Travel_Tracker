@@ -6,10 +6,14 @@ html {
 }
 
 body {
-  background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2022/01/06/ORB_JanuarySale_imgB_1920x1440_20220106.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: linear-gradient(
+    to right top,
+    #add9f4,
+    #91bdde,
+    #76a1c7,
+    #5e86b1,
+    #476c9b
+  );
   margin: 0;
   padding: 0;
   height: 100vh;

@@ -273,7 +273,8 @@ function postInputData(event, userTrip) {
     displayUserInfo,
     travelUser,
     clearInputs
-  ).catch((error) => {
+  ).then(data => console.log(data))
+  .catch((error) => {
     errorMessage.innerText = `
         **${error.message}**
         `;
