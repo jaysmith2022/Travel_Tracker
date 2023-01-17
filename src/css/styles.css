@@ -6,7 +6,14 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right top, #add9f4, #91bdde, #76a1c7, #5e86b1, #476c9b);
+  background-image: linear-gradient(
+    to right top,
+    #add9f4,
+    #91bdde,
+    #76a1c7,
+    #5e86b1,
+    #476c9b
+  );
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -15,7 +22,6 @@ body {
   flex-direction: column;
   font-family: sans-serif;
 }
-
 
 .top-nav {
   display: flex;
@@ -64,8 +70,9 @@ h1 {
 .past-trips,
 .upcoming-trips,
 .pending-trips {
-  height: 30%;
   margin-left: 20px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .trip-area {
@@ -75,8 +82,6 @@ h1 {
   flex-direction: column;
 }
 
-
-
 .display-trips {
   height: 60%;
   width: 100%;
@@ -84,6 +89,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  justify-content: center;
 }
 
 .search-trips {
@@ -95,7 +101,6 @@ h1 {
   align-items: center;
 }
 
-
 .date-picker-title,
 .vacation-length,
 .num-travelers,
@@ -106,12 +111,10 @@ h3 {
 .vacation-length-box,
 .date-picker,
 .num-travelers-box,
-.destination-dropdown
-{
+.destination-dropdown {
   width: 135px;
-  height:21px;
+  height: 21px;
 }
-
 
 .trip-details-header {
   display: flex;
@@ -136,18 +139,14 @@ h3 {
   margin-left: 15px;
 }
 
-/* h3 {
-  margin-left: 20px;
-} */
-
 .traveler-name {
   width: 430px;
-  font-size: xxx-large;
+  font-size: xx-large;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 
 .calendar-button {
@@ -182,7 +181,6 @@ h3 {
   font-style: italic;
 }
 
-
 .display-vacation-choice {
   display: flex;
   width: 90%;
@@ -192,20 +190,18 @@ h3 {
 }
 
 .chosen-img-wrapper {
-    height: 100%;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .chosen-img {
   object-fit: cover;
   height: 92%;
 }
-
-
 
 figcaption {
   background-color: #000000;
@@ -227,14 +223,13 @@ figcaption {
   height: 100%;
 }
 
-
 .book-now {
   display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 
 .caption-container {
@@ -262,6 +257,11 @@ figcaption {
 }
 
 .login-main {
+  background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2022/01/06/ORB_JanuarySale_imgB_1920x1440_20220106.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -321,7 +321,6 @@ figcaption {
   margin-top: 10px;
 }
 
-
 .login-message-container {
   width: 100%;
   display: flex;
@@ -342,10 +341,42 @@ figcaption {
   margin-bottom: 10px;
 }
 
+.swiper {
+  width: 90%;
+  height: 90%;
+}
+
+:root {
+  --swiper-navigation-color: #fff;
+}
+
+.swiper-slide {
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
 
 input,
-button {
+button,
+select {
   cursor: pointer;
+}
+
+button {
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✈️</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
+
+.vacation-caption-main {
+  box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 75%);
+  width: 80%;
+  height: 10%;
+}
+
+.main-swiper-img {
+  box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 75%);
 }
 
 .hidden {

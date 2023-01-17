@@ -8,15 +8,14 @@ class Trips {
   constructor(destinationData, tripsData) {
     this.destinationData = destinationData;
     this.tripsData = tripsData;
-    console.log(this.tripsData.map(el => el.date))
   }
 
   findAllTravelerTrips(id) {
     const userTravel = this.tripsData.filter((trip) => trip.userID === id);
-    if(userTravel.length <= 0) {
-      return 'No User Information'
+    if (userTravel.length <= 0) {
+      return "No User Information";
     } else {
-      return userTravel
+      return userTravel;
     }
   }
 
